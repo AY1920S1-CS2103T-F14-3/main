@@ -628,10 +628,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>has a need to manage a significant number of contacts</p>
-</li>
-<li>
-<p>prefer desktop apps over other types</p>
+<p>receptionists / secretaries in corporations.</p>
 </li>
 <li>
 <p>can type fast</p>
@@ -641,6 +638,9 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 <li>
 <p>is reasonably comfortable using CLI apps</p>
+</li>
+<li>
+<p>requires submitting large amount of structured reports or documents</p>
 </li>
 </ul>
 </div>
@@ -718,7 +718,8 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>Typee</code> and the <strong>Actor</strong> is the <code>user</code>,
+unless specified otherwise)</p>
 </div>
 <h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
 <div class="paragraph">
@@ -771,6 +772,114 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 <div class="paragraph">
 <p><em>{More to be added}</em></p>
+</div>
+<h3 id="use-case-uc01-edit-selected-appointment" class="discrete">Use case: (UC01) Edit selected appointment</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list appointments</p>
+</li>
+<li>
+<p>System displays the list of appointments</p>
+</li>
+<li>
+<p>User keys in index and provide fields that the user wants to edit</p>
+</li>
+<li>
+<p>System edits the selected appointment accordingly</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. User keys in invalid index</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. System shows error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. User does not provide any field to edit.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. System shows error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc02-generate-appointment-document-in-pdf-format" class="discrete">Use case: (UC02) Generate appointment document in PDF format</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list appointments</p>
+</li>
+<li>
+<p>System displays the list of appointments</p>
+</li>
+<li>
+<p>User request for generate PDF of an appointment, providing the index number</p>
+</li>
+<li>
+<p>System generates a PDF file in a specific external directory</p>
+</li>
+<li>
+<p>System shows successful message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a. System fails to generate PDF</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>4a1. System shows error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -958,4 +1067,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 10:17:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-03 10:26:46 UTC</div></div></div></body></html>
