@@ -33,17 +33,6 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
-<li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#deleting-a-person">G.2. Deleting a person</a></li>
-<li><a href="#saving-data">G.3. Saving data</a></li>
-</ul>
-</li>
 </ul>
 </div>
 </div>
@@ -672,6 +661,102 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add an appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">organise and schedule meetings/appointments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">request ro edit a specific appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fix any misinformation that I typed wrongly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary under a busy manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">find specific appointments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule meetings/appointments efficiently</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have the option to clear the appointment list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restart from scratch</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">undo my previous commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">recall commands made by mistake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redo recalled commands</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve the commands undone by mistake</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">select and delete a specific appointment from the list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manage inactive or cancelled appointments</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">busy secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">able to see the appointments in calendar view</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enjoy better convenience</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">save and load data from a local file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep the appointment list locally</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary under a busy manager</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort all appointments</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see them in the order I want</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a command to terminate the application</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">advanced user</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to execute compound statements</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve efficiency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">bored secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a built-in game feature</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep myself entertained</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">highly driven secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a way to practice typing</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve my efficiency during work</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">fast-typer</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">have a way to amend trivial spelling errors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">improve typing efficiency</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">secretary</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">generate a PDF file of a selected appointment</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">make a distributable copy of the appointment</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">highly driven secretary</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">practise typing</p></td>
@@ -687,448 +772,167 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><strong>*</strong></code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">secretary under a busy manager</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">find specific appointments fast</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">schedule appointments efficiently</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">schedule appointments efficiently</p>
+<p class="tableblock">[appendix]
+== Use Cases</p>
+<p class="tableblock">(For all use cases below, the <strong>System</strong> is the <code>Typee</code> and the <strong>Actor</strong> is the <code>user</code>,
+unless specified otherwise)</p>
+<p class="tableblock">[discrete]
+=== Use case: Delete appointment</p>
+<p class="tableblock"><strong>MSS</strong></p>
+<p class="tableblock">1.  User requests to list appointments
+2.  System displays the list of appointments
+3.  User requests to delete a specific appointment in the list
+4.  System deletes the person
++
+Use case ends.</p>
+<p class="tableblock"><strong>Extensions</strong></p>
+<p class="tableblock">[none]
+* 2a. The list is empty.
++
+Use case ends.</p>
+<p class="tableblock">* 3a. The given index is invalid.
++
+[none]
+<strong> 3a1. System shows an error message.
++
+Use case resumes at step 2.</p>
+<p class="tableblock"><em>{More to be added}</em></p>
+<p class="tableblock">[discrete]
+=== Use case: (UC01) Edit selected appointment
+<strong>MSS</strong></p>
+<p class="tableblock">1. User requests to list appointments
+2. System displays the list of appointments
+3. User keys in index and provide fields that the user wants to edit
+4. System edits the selected appointment accordingly
++
+Use case ends.</p>
+<p class="tableblock"><strong>Extensions</strong>
+[none]
+* 2a. The list is empty
++
+Use case ends.
+* 3a. User keys in invalid index
+[none]
+</strong> 3a1. System shows error message.
++
+Use case resumes at step 2.
+* 3b. User does not provide any field to edit.
+[none]
+<strong> 3b1. System shows error message.
++
+Use case resumes at step 2.</p>
+<p class="tableblock">[discrete]
+=== Use case: (UC02) Generate appointment document in PDF format
+<strong>MSS</strong></p>
+<p class="tableblock">1. User requests to list appointments
+2. System displays the list of appointments
+3. User request for generate PDF of an appointment, providing the index number
+4. System generates a PDF file in a specific external directory
+5. System shows successful message
++
+Use case ends.</p>
+<p class="tableblock"><strong>Extensions</strong>
+[none]
+* 4a. System fails to generate PDF
+[none]
+</strong> 4a1. System shows error message.
++
+Use case resumes at step 2.</p>
+<p class="tableblock">[discrete]
+=== Use case: (UC03) List appointments
+<strong>MSS</strong></p>
+<p class="tableblock">1.  User requests to list appointments
+2.  System displays the list of appointments in chronological order
++
+Use case ends.</p>
+<p class="tableblock">[none]
+* 1a. User specifies ordering method
+<strong>* 2a1. System displays the list of appointments in specified order</p>
+<p class="tableblock">=== Use case: (UC04) Find appointment
+*MSS</strong></p>
+<p class="tableblock">1.  User requests to find appointments
+2.  User provides fields that the user wants to use to find appointments
+3.  System finds and displays the list of relevant appointment(s)
++
+Use case ends.</p>
+<p class="tableblock"><strong>Extensions</strong>
+[none]
+* 2a. The list is empty.
++
+Use case ends.</p>
+<p class="tableblock">[discrete]
+=== Use case: (UC05) Typing game</p>
+<p class="tableblock"><strong>MSS</strong></p>
+<p class="tableblock">1.  User requests to start the typing game
+2.  Typing game shows the user the word(s) to type for a period of time
+3.  User types the word(s) within the period of time
+4.  Typing game updates the User&#8217;s score and life points accordingly.
+Steps 2-4 are repeated for as many rounds as required until User runs out of life points.
+5.  Typing game shows the final score of the User
++
+Use case ends.</p>
+<p class="tableblock"><strong>Extensions</strong></p>
+<p class="tableblock">[none]
+* 2a. User exits game
++
+Use case ends.</p>
+<p class="tableblock">[appendix]
+== Non Functional Requirements</p>
+<p class="tableblock">.  Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.
+.  Should come with automated unit tests and open source code.
+.  Should work on both 32-bit and 64-bit environments.
+.  Application should not exceed 100MB in size.
+.  Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.
+.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
+<p class="tableblock"><em>{More to be added}</em></p>
+<p class="tableblock">[appendix]
+== Glossary</p>
+<p class="tableblock"><a id="mainstream-os"></a> Mainstream OS::
+Windows, Linux, Unix, OS-X</p>
+<p class="tableblock"><a id="private-contact-detail"></a> Private contact detail::
+A contact detail that is not meant to be shared with others</p>
+<p class="tableblock">[appendix]
+== Product Survey</p>
+<p class="tableblock"><strong>Product Name</strong></p>
+<p class="tableblock">Author: &#8230;&#8203;</p>
+<p class="tableblock">Pros:</p>
+<p class="tableblock">* &#8230;&#8203;
+* &#8230;&#8203;</p>
+<p class="tableblock">Cons:</p>
+<p class="tableblock">* &#8230;&#8203;
+* &#8230;&#8203;</p>
+<p class="tableblock">[appendix]
+== Instructions for Manual Testing</p>
+<p class="tableblock">Given below are instructions to test the app manually.</p>
+<p class="tableblock">[NOTE]
+These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.</p>
+<p class="tableblock">=== Launch and Shutdown</p>
+<p class="tableblock">. Initial launch</p>
+<p class="tableblock">.. Download the jar file and copy into an empty folder
+.. Double-click the jar file<br>
+   Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+<p class="tableblock">. Saving window preferences</p>
+<p class="tableblock">.. Resize the window to an optimum size. Move the window to a different location. Close the window.
+.. Re-launch the app by double-clicking the jar file.<br>
+   Expected: The most recent window size and location is retained.</p>
+<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p>
+<p class="tableblock">=== Deleting a person</p>
+<p class="tableblock">. Deleting a person while all persons are listed</p>
+<p class="tableblock">.. Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.
+.. Test case: <code>delete 1</code><br>
+   Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+.. Test case: <code>delete 0</code><br>
+   Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.
+.. Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
+   Expected: Similar to previous.</p>
+<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p>
+<p class="tableblock">=== Saving data</p>
+<p class="tableblock">. Dealing with missing/corrupted data files</p>
+<p class="tableblock">.. <em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
+<p class="tableblock"><em>{ more test cases &#8230;&#8203; }</em></p></td>
 </tr>
 </tbody>
 </table>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>Typee</code> and the <strong>Actor</strong> is the <code>user</code>,
-unless specified otherwise)</p>
-</div>
-<h3 id="use-case-delete-appointment" class="discrete">Use case: Delete appointment</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to list appointments</p>
-</li>
-<li>
-<p>System displays the list of appointments</p>
-</li>
-<li>
-<p>User requests to delete a specific appointment in the list</p>
-</li>
-<li>
-<p>System deletes the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. System shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
-<h3 id="use-case-uc01-edit-selected-appointment" class="discrete">Use case: (UC01) Edit selected appointment</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to list appointments</p>
-</li>
-<li>
-<p>System displays the list of appointments</p>
-</li>
-<li>
-<p>User keys in index and provide fields that the user wants to edit</p>
-</li>
-<li>
-<p>System edits the selected appointment accordingly</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. User keys in invalid index</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. System shows error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>3b. User does not provide any field to edit.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3b1. System shows error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-uc02-generate-appointment-document-in-pdf-format" class="discrete">Use case: (UC02) Generate appointment document in PDF format</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to list appointments</p>
-</li>
-<li>
-<p>System displays the list of appointments</p>
-</li>
-<li>
-<p>User request for generate PDF of an appointment, providing the index number</p>
-</li>
-<li>
-<p>System generates a PDF file in a specific external directory</p>
-</li>
-<li>
-<p>System shows successful message</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a. System fails to generate PDF</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>4a1. System shows error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-find-appointment" class="discrete">Use case: Find appointment</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to find appointments</p>
-</li>
-<li>
-<p>User provides fields that the user wants to use to find appointments</p>
-</li>
-<li>
-<p>System finds and displays the list of relevant appointment(s)</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-typing-game" class="discrete">Use case: Typing game</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to start the typing game</p>
-</li>
-<li>
-<p>Typing game shows the user the word(s) to type for a period of time</p>
-</li>
-<li>
-<p>User types the word(s) within the period of time</p>
-</li>
-<li>
-<p>Typing game updates the User&#8217;s score and life points accordingly.
-Steps 2-4 are repeated for as many rounds as required until User runs out of life points.</p>
-</li>
-<li>
-<p>Typing game shows the final score of the User</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. User exits game</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Should work on any <a href="#mainstream-os">mainstream OS</a> as long as it has Java <code>11</code> or above installed.</p>
-</li>
-<li>
-<p>Should come with automated unit tests and open source code.</p>
-</li>
-<li>
-<p>Should work on both 32-bit and 64-bit environments.</p>
-</li>
-<li>
-<p>Application should not exceed 100MB in size.</p>
-</li>
-<li>
-<p>Should be able to hold up to 1000 persons without a noticeable sluggishness in performance for typical usage.</p>
-</li>
-<li>
-<p>A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{More to be added}</em></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
-<div class="sectionbody">
-<div class="dlist">
-<dl>
-<dt class="hdlist1"><a id="mainstream-os"></a> Mainstream OS</dt>
-<dd>
-<p>Windows, Linux, Unix, OS-X</p>
-</dd>
-<dt class="hdlist1"><a id="private-contact-detail"></a> Private contact detail</dt>
-<dd>
-<p>A contact detail that is not meant to be shared with others</p>
-</dd>
-</dl>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Given below are instructions to test the app manually.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-These instructions only provide a starting point for testers to work on; testers are expected to do more <em>exploratory</em> testing.
-</td>
-</tr>
-</table>
-</div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Initial launch</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Download the jar file and copy into an empty folder</p>
-</li>
-<li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Saving window preferences</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
-</li>
-<li>
-<p>Re-launch the app by double-clicking the jar file.<br>
-Expected: The most recent window size and location is retained.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person"><a class="link" href="#deleting-a-person">G.2. Deleting a person</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a person while all persons are listed</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Prerequisites: List all persons using the <code>list</code> command. Multiple persons in the list.</p>
-</li>
-<li>
-<p>Test case: <code>delete 1</code><br>
-Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.</p>
-</li>
-<li>
-<p>Test case: <code>delete 0</code><br>
-Expected: No person is deleted. Error details shown in the status message. Status bar remains the same.</p>
-</li>
-<li>
-<p>Other incorrect delete commands to try: <code>delete</code>, <code>delete x</code> (where x is larger than the list size) <em>{give more}</em><br>
-Expected: Similar to previous.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="saving-data"><a class="link" href="#saving-data">G.3. Saving data</a></h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Dealing with missing/corrupted data files</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><em>{explain how to simulate a missing/corrupted file and the expected behavior}</em></p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><em>{ more test cases &#8230;&#8203; }</em></p>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-07 05:21:07 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-07 05:37:06 UTC</div></div></div></body></html>
