@@ -22,13 +22,12 @@
 <li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
 <li><a href="#undoing-the-previous-command-code-undo-code">3.8. Undoing the previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previous-command-code-redo-code">3.9. Redoing the previous command " <code>redo</code></a></li>
-<li><a href="#changing-to-calendar-view-code-calendar-code">3.10. Changing to calendar view : <code>calendar</code></a></li>
-<li><a href="#typing-efficiency-game-code-game-code">3.11. Typing efficiency game : <code>game</code></a></li>
-<li><a href="#spell-checker-code-spellcheck-code">3.12. Spell checker : <code>spellcheck</code></a></li>
-<li><a href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.13. Generating a PDF file of appointments : <code>pdf</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-and-loading-the-data">3.15. Saving and loading the data</a></li>
-<li><a href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.16. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></li>
+<li><a href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></li>
+<li><a href="#typing-game-code-tab-typinggame-code">3.11. Typing game : <code>tab typinggame</code></a></li>
+<li><a href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.12. Generating a PDF file of appointments : <code>pdf</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></li>
+<li><a href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.15. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -296,38 +295,36 @@ Redos the previous undo command, i.e. the appointment with the description <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-to-calendar-view-code-calendar-code"><a class="link" href="#changing-to-calendar-view-code-calendar-code">3.10. Changing to calendar view : <code>calendar</code></a></h3>
+<h3 id="changing-to-calendar-view-code-tab-calendar-code"><a class="link" href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></h3>
 <div class="paragraph">
 <p>Changes the current view to the calendar view, which displays appointments inside a calendar.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="typing-efficiency-game-code-game-code"><a class="link" href="#typing-efficiency-game-code-game-code">3.11. Typing efficiency game : <code>game</code></a></h3>
+<h3 id="typing-game-code-tab-typinggame-code"><a class="link" href="#typing-game-code-tab-typinggame-code">3.11. Typing game : <code>tab typinggame</code></a></h3>
 <div class="paragraph">
-<p>Opens a simple typing game which helps you to improve your typing speed.</p>
+<p>Opens a simple typing game which helps you to improve your typing speed. There are moving words that users can type in
+order to score points. Once users correctly type the specified word, the word disappears and the increase in points is
+reflected in the player information panel in the game window. When the user fails to type the word before the moving
+word reaches the bottom of screen, the decrease in health points is reflected in the player information panel in the game
+window. After the health points reaches zero, <code>GAME OVER</code> is displayed.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="spell-checker-code-spellcheck-code"><a class="link" href="#spell-checker-code-spellcheck-code">3.12. Spell checker : <code>spellcheck</code></a></h3>
-<div class="paragraph">
-<p>Scans through all appointment descriptions for spelling errors. A probabilistic approach is used to determine if minor spelling errors are present.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="generating-a-pdf-file-of-appointments-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.13. Generating a PDF file of appointments : <code>pdf</code></a></h3>
+<h3 id="generating-a-pdf-file-of-appointments-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.12. Generating a PDF file of appointments : <code>pdf</code></a></h3>
 <div class="paragraph">
 <p>Generates a PDF file based on the data saved in the hard disk.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.15. Saving and loading the data</a></h3>
+<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></h3>
 <div class="paragraph">
 <p>The appointment manager&#8217;s data is saved in the hard disk automatically after any command that changes the data.<br></p>
 </div>
@@ -337,7 +334,7 @@ Relevant data will be loaded from the external file when the application starts.
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code"><a class="link" href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.16. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></h3>
+<h3 id="generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code"><a class="link" href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.15. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></h3>
 
 </div>
 </div>
@@ -361,7 +358,7 @@ Relevant data will be loaded from the external file when the application starts.
 e.g. <code>add d/Team lunch outing on Friday</code></p>
 </li>
 <li>
-<p><strong>Calendar</strong> : <code>calendar</code></p>
+<p><strong>Calendar</strong> : <code>tab calendar</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -379,7 +376,7 @@ e.g. <code>edit 2 d/Team lunch outing on Thursday</code></p>
 e.g. <code>find team outing</code></p>
 </li>
 <li>
-<p><strong>Game</strong> : <code>game</code></p>
+<p><strong>Game</strong> : <code>tab typinggame</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
@@ -391,9 +388,6 @@ e.g. <code>find team outing</code></p>
 <p><strong>PDF</strong> : <code>pdf</code></p>
 </li>
 <li>
-<p><strong>Spellcheck</strong> : <code>spellcheck</code></p>
-</li>
-<li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
@@ -402,4 +396,4 @@ e.g. <code>find team outing</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-23 10:36:42 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 13:46:55 UTC</div></div></div></body></html>
