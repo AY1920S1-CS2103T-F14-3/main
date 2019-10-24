@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Typee - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>SC09-F14-3</code>      Since: <code>Aug 2019</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -23,10 +23,11 @@
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.4. Configuration</a></li>
-<li><a href="#game-window">3.5. Game Window</a></li>
+<li><a href="#tab-switch-feature">3.2. Tab Switch Feature</a></li>
+<li><a href="#engagement-report-generation">3.3. Engagement Report Generation</a></li>
+<li><a href="#logging">3.4. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#game-window">3.6. Game Window</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -546,20 +547,177 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.2. [Proposed] Data Encryption</a></h3>
+<h3 id="tab-switch-feature"><a class="link" href="#tab-switch-feature">3.2. Tab Switch Feature</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
+<p>Tab switch feature is a type of Command that allows users to switch to respective windows for using different features in the system. System UI structure is generally divided into 2 parts;</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-structure"><a class="link" href="#implementation-structure">3.2.1. Implementation Structure</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/TabCommandClassDiagram.png" alt="TabCommandClassDiagram">
+</div>
+<div class="title">Figure 9. TabCommand Implementation Class Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>MainWindow</code> which contains necessary text input for <code>Command</code> inputs and output display for displaying the <code>CommandResult</code></p>
+</li>
+<li>
+<p>Window component, which is a type of <code>VBox</code>, that acts as a container for other different UI windows.</p>
+</li>
+<li>
+<p>Tab Menu List, which displays the name of the tab/menus, which has respective separate UI windows. User has to use a specific <code>Command</code>; <code>TabCommand</code> in order to switch the window to another window.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon first startup of the system, by system default, system will display the <code>EngagementList</code> window.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>New Ui Model class <code>Tab</code> is implemented to contain the respective fxml controller classes in a OOP manner. Below is the class diagram for <code>Tab</code> class</p>
+</li>
+</ol>
+</div>
+<div class="imageblock text-center" style="text-align: center">
+<div class="content">
+<img src="images/TabClassDiagram.png" alt="TabClassDiagram">
+</div>
+<div class="title">Figure 10. Tab Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>From figure 9, MainWindow will have an additional method <code>fetchTabInformation(tabName)</code>. After the parser executes the <code>TabCommand</code>, it will return a CommandResult with <code>Tab</code> property.
+The method will compare the <code>Tab</code> in <code>CommandResult</code> and once there is a matching result, the method will load the respective fxml file in the MainWindow to display the respective feature window.
+Below is the basic activity diagram of fetchTabInformation method</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/fetchTabInformationActivityDiagram.png" alt="fetchTabInformationActivityDiagram">
+</div>
+<div class="title">Figure 11. fetchTabInformation method Activity Diagram</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="engagement-report-generation"><a class="link" href="#engagement-report-generation">3.3. Engagement Report Generation</a></h3>
+<div class="paragraph">
+<p>This feature allows user to generate a pre-selected engagement in to a report and save it as a document file. The document file will be created in a .pdf format.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-structure-2"><a class="link" href="#implementation-structure-2">3.3.1. Implementation Structure</a></h4>
+<div class="imageblock">
+<div class="content">
+<img src="images/PdfCommandClassDiagram.png" alt="PdfCommandClassDiagram">
+</div>
+<div class="title">Figure 12. PdfCommand Implementation Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The feature will be implemented as an additional type of Command; <code>PdfCommand</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Proposed syntax of the PdfCommand is as follow: <code>pdf i/[engagementList_index] to/[Person] from/[Person]</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Util class <code>PdfUtil</code> will be implemented for handling all pdf document creation related methods.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/PdfUtilClassDiagram.png" alt="PdfUtilClassDiagram">
+</div>
+<div class="title">Figure 13. PdfUtil Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>PdfUtil class will be implemented under <code>util</code> package and it will be able to deliver few essential features
+that are necessary for document creation.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Able to generate a full report document based on the <code>Engagement</code> as input.</p>
+</li>
+<li>
+<p>Use different templates for each other types of <code>Engagement</code> such as <code>Appointment</code>, <code>Interview</code> and <code>Meeting</code>. Document template will follow general email format:
+Receiver, Content contained in a table, Sender and signature with address and company logo (Refer to Figure 12).
+To fulfill the document format, <code>Report</code> class needs to be implemented in order to model all necessary properties that has to be in the document. It 3 following properties;</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>engagement</code>: specific engagement information to include in the document</p>
+</li>
+<li>
+<p><code>to</code>: A <code>Person</code> who is receiving the document</p>
+</li>
+<li>
+<p><code>from</code>: A <code>Person</code> who is either a receptionist or a secretary who is sending the document.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="ui-design"><a class="link" href="#ui-design">3.3.2. UI Design</a></h4>
+<div class="paragraph">
+<p><code>ReportWindow</code> will be the UI container which helps the user to interact using <code>PdfCommand</code>. UI will consist of 2 main scrollable panes; Engagement list with index numbers,
+and the directory explorer for <code>reports/</code> as a item list.</p>
+</div>
+<div class="sect4">
+<h5 id="ui-components-features"><a class="link" href="#ui-components-features">UI Components &amp; Features</a></h5>
+<div class="paragraph">
+<p>Table below explains the components that are included in the <code>ReportWindow</code> with its purpose and features.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Report Window UI Components</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">UI Component Type</th>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>EngagementList</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Stack Pane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the sorted engagement list</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To guide user to help recognize the list index number that the user wants to generate document from.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>File_Explorer</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Stack Pane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1. Displays the list of document generated previously and stored under the directory <code>reports/</code>.</p>
+<p class="tableblock">2. Each list item is clickable with a MouseClick action of opening the document.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To allow user to manage documents more time efficiently.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.4, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -590,18 +748,18 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.4. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-window"><a class="link" href="#game-window">3.5. Game Window</a></h3>
+<h3 id="game-window"><a class="link" href="#game-window">3.6. Game Window</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/GameWindowClassDiagram.png" alt="GameWindowClassDiagram">
 </div>
-<div class="title">Figure 9. Structure of the Game Window</div>
+<div class="title">Figure 14. Structure of the Game Window</div>
 </div>
 <div class="paragraph">
 <p>The game window provides a simple typing game where there are moving words that users can type in order to score points.
@@ -673,7 +831,7 @@ points reaches zero, <code>GAME OVER</code> is displayed.</p>
 <div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 59%;">
+<table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 22%;">
 <col style="width: 23%;">
@@ -1300,13 +1458,10 @@ Steps 2-4 are repeated for as many rounds as required until User runs out of hea
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list appointments</p>
-</li>
-<li>
 <p>System displays the list of appointments</p>
 </li>
 <li>
-<p>User request for generate PDF of an appointment, providing the index number</p>
+<p>User requests for generating PDF of an engagement for a selected engagement.</p>
 </li>
 <li>
 <p>System generates a PDF file in a specific external directory</p>
@@ -1325,11 +1480,11 @@ Steps 2-4 are repeated for as many rounds as required until User runs out of hea
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a. System fails to generate PDF</p>
+<p>3a. System fails to generate PDF</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>4a1. System shows error message.</p>
+<p>3a1. System shows error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 2.</p>
 </div>
@@ -1543,4 +1698,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 13:46:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-24 13:48:29 UTC</div></div></div></body></html>
