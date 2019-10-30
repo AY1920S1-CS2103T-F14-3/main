@@ -1,6 +1,6 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Typee - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Typee - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -15,19 +15,20 @@
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
 <li><a href="#adding-an-appointment-code-add-code">3.2. Adding an appointment: <code>add</code></a></li>
-<li><a href="#sorting-all-appointments-code-sort-code">3.3. Sorting all appointments : <code>sort</code></a></li>
-<li><a href="#editing-an-appointment-code-edit-code">3.4. Editing an appointment : <code>edit</code></a></li>
-<li><a href="#locating-appointments-by-name-code-find-code">3.5. Locating appointments by name: <code>find</code></a></li>
-<li><a href="#deleting-an-appointment-code-delete-code">3.6. Deleting an appointment : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#undoing-the-previous-command-code-undo-code">3.8. Undoing the previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previous-command-code-redo-code">3.9. Redoing the previous command " <code>redo</code></a></li>
-<li><a href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></li>
-<li><a href="#typing-game-code-tab-typinggame-code">3.11. Typing game : <code>tab typinggame</code></a></li>
-<li><a href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.12. Generating a PDF file of appointments : <code>pdf</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></li>
-<li><a href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.15. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></li>
+<li><a href="#listing-all-appointments-code-list-code">3.3. Listing all appointments : <code>list</code></a></li>
+<li><a href="#sorting-all-appointments-code-sort-code">3.4. Sorting all appointments : <code>sort</code></a></li>
+<li><a href="#editing-an-appointment-code-edit-code">3.5. Editing an appointment : <code>edit</code></a></li>
+<li><a href="#locating-appointments-by-name-code-find-code">3.6. Locating appointments by name: <code>find</code></a></li>
+<li><a href="#deleting-an-appointment-code-delete-code">3.7. Deleting an appointment : <code>delete</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#undoing-the-previous-command-code-undo-code">3.9. Undoing the previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previous-command-code-redo-code">3.10. Redoing the previous command : <code>redo</code></a></li>
+<li><a href="#changing-to-calendar-view-code-tab-calendar-code">3.11. Changing to calendar view : <code>tab calendar</code></a></li>
+<li><a href="#typing-game-code-tab-typinggame-code">3.12. Typing game : <code>tab typinggame</code></a></li>
+<li><a href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.13. Generating a PDF file of appointments : <code>pdf</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-and-loading-the-data">3.15. Saving and loading the data</a></li>
+<li><a href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.16. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -130,12 +131,31 @@ Adds an appointment with the description <code>Meeting on Monday</code> to the a
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-appointments-code-sort-code"><a class="link" href="#sorting-all-appointments-code-sort-code">3.3. Sorting all appointments : <code>sort</code></a></h3>
+<h3 id="listing-all-appointments-code-list-code"><a class="link" href="#listing-all-appointments-code-list-code">3.3. Listing all appointments : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Sorts the list of all appointments in the appointment list by the order specified by user.<br>
-Orders supported: <code>description_ascending</code>, <code>description_descending</code>, <code>start_ascending</code>, <code>start_descending</code><br>
-<code>end_ascending</code>, <code>end_descending</code>, <code>priority_ascending</code>, <code>priority_descending</code><br>
-Format: <code>sort ORDER</code><br></p>
+<p>Lists all appointments.<br>
+Format: <code>list</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="sorting-all-appointments-code-sort-code"><a class="link" href="#sorting-all-appointments-code-sort-code">3.4. Sorting all appointments : <code>sort</code></a></h3>
+<div class="paragraph">
+<p>Sorts the list of all appointments in the appointment list by the order specified by user.<br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Orders supported: <code>description_ascending</code>, <code>description_descending</code>, <code>start_ascending</code>, <code>start_descending</code>, <code>end_ascending</code>, <code>end_descending</code>, <code>priority_ascending</code>, <code>priority_descending</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort ORDER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -148,9 +168,25 @@ Sorts the list displayed in ascending order of start time.</p>
 </li>
 </ul>
 </div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/before-sort.png" alt="before sort" width="450">
+</div>
+<div class="title">Figure 1. Engagement list before sorting</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/after-sort.png" alt="after sort" width="450">
+</div>
+<div class="title">Figure 2. Engagement list after sorting by start time in ascending order</div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="editing-an-appointment-code-edit-code"><a class="link" href="#editing-an-appointment-code-edit-code">3.4. Editing an appointment : <code>edit</code></a></h3>
+<h3 id="editing-an-appointment-code-edit-code"><a class="link" href="#editing-an-appointment-code-edit-code">3.5. Editing an appointment : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing appointment in the appointment manager.<br>
 Format: <code>edit INDEX [d/DESCRIPTION]</code></p>
@@ -185,7 +221,7 @@ Edits the description of the 1st person to be <code>Meeting on Tuesday</code>.</
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-appointments-by-name-code-find-code"><a class="link" href="#locating-appointments-by-name-code-find-code">3.5. Locating appointments by name: <code>find</code></a></h3>
+<h3 id="locating-appointments-by-name-code-find-code"><a class="link" href="#locating-appointments-by-name-code-find-code">3.6. Locating appointments by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds appointments whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -204,6 +240,18 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 </div>
 </div>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The complete list can be displayed again using <code>list</code>.
+</td>
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -221,9 +269,9 @@ Returns any appointment containing the keywords <code>meeting</code>, <code>pres
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-an-appointment-code-delete-code"><a class="link" href="#deleting-an-appointment-code-delete-code">3.6. Deleting an appointment : <code>delete</code></a></h3>
+<h3 id="deleting-an-appointment-code-delete-code"><a class="link" href="#deleting-an-appointment-code-delete-code">3.7. Deleting an appointment : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified appointment from the address book.<br>
+<p>Deletes the specified appointment from the engagement list.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -262,16 +310,16 @@ Deletes the 1st appointment in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.8. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all appointments from the appointment manager.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-the-previous-command-code-undo-code"><a class="link" href="#undoing-the-previous-command-code-undo-code">3.8. Undoing the previous command : <code>undo</code></a></h3>
+<h3 id="undoing-the-previous-command-code-undo-code"><a class="link" href="#undoing-the-previous-command-code-undo-code">3.9. Undoing the previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Undos the previous command, provided that it exists.<br>
+<p>Undoes the previous command, provided that it exists.<br>
 Format: <code>undo</code></p>
 </div>
 <div class="paragraph">
@@ -282,15 +330,42 @@ Format: <code>undo</code></p>
 <li>
 <p><code>add d/Meeting on Monday</code><br>
 <code>undo</code><br>
-Undos the add command, i.e. the appointment with the description <code>Meeting on Monday</code> will no longer be in the appointment manager.</p>
+Undoes the add command, i.e. the engagement with the description <code>Meeting on Monday</code> will no longer be in the appointment manager.</p>
+</li>
+<li>
+<p><code>delete 1</code><br>
+<code>undo</code><br>
+Undoes the delete command, i.e. restores the first engagement in the original displayed list.</p>
 </li>
 </ul>
 </div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/after-sort.png" alt="after sort" width="450">
+</div>
+<div class="title">Figure 3. Engagement list before the command <code>delete 1</code></div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/deletion-before-undo.png" alt="deletion before undo" width="450">
+</div>
+<div class="title">Figure 4. Engagement list after deletion</div>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/undo-result.png" alt="undo result" width="450">
+</div>
+<div class="title">Figure 5. Engagement list after the command <code>undo</code></div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previous-command-code-redo-code"><a class="link" href="#redoing-the-previous-command-code-redo-code">3.9. Redoing the previous command " <code>redo</code></a></h3>
+<h3 id="redoing-the-previous-command-code-redo-code"><a class="link" href="#redoing-the-previous-command-code-redo-code">3.10. Redoing the previous command : <code>redo</code></a></h3>
 <div class="paragraph">
-<p>Redos the previous <code>undo</code> command. There must be a valid undo command to redo, otherwise this command does nothing.<br>
+<p>Redoes the previous <code>undo</code> command. There must be a valid undo command to redo, otherwise this command does nothing.<br>
 Format: <code>redo</code></p>
 </div>
 <div class="paragraph">
@@ -299,22 +374,38 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add d/Meeting on Monday</code><br>
+<p><code>delete 1</code><br>
 <code>undo</code><br>
-<code>redo</code>
-Redos the previous undo command, i.e. the appointment with the description <code>Meeting on Monday</code> will reappear in the appointment manager.</p>
+<code>redo</code><br>
+Redoes the previous undo command, i.e. the appointment deleted before <code>undo</code> will be removed again from the appointment manager.</p>
 </li>
 </ul>
 </div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/undo-result.png" alt="undo result" width="450">
+</div>
+<div class="title">Figure 6. Engagement list after the command <code>undo</code></div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/redo-result.png" alt="redo result" width="450">
+</div>
+<div class="title">Figure 7. Engagement list after the command <code>redo</code></div>
+</div>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="changing-to-calendar-view-code-tab-calendar-code"><a class="link" href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></h3>
+<h3 id="changing-to-calendar-view-code-tab-calendar-code"><a class="link" href="#changing-to-calendar-view-code-tab-calendar-code">3.11. Changing to calendar view : <code>tab calendar</code></a></h3>
 <div class="paragraph">
 <p>Changes the current view to the calendar view, which displays appointments inside a calendar.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="typing-game-code-tab-typinggame-code"><a class="link" href="#typing-game-code-tab-typinggame-code">3.11. Typing game : <code>tab typinggame</code></a></h3>
+<h3 id="typing-game-code-tab-typinggame-code"><a class="link" href="#typing-game-code-tab-typinggame-code">3.12. Typing game : <code>tab typinggame</code></a></h3>
 <div class="paragraph">
 <p>Opens a simple typing game which helps you to improve your typing speed. There are moving words that users can type in
 order to score points. Once users correctly type the specified word, the word disappears and the increase in points is
@@ -324,20 +415,20 @@ window. After the health points reaches zero, <code>GAME OVER</code> is displaye
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-pdf-file-of-appointments-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.12. Generating a PDF file of appointments : <code>pdf</code></a></h3>
+<h3 id="generating-a-pdf-file-of-appointments-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-appointments-code-pdf-code">3.13. Generating a PDF file of appointments : <code>pdf</code></a></h3>
 <div class="paragraph">
 <p>Generates a PDF file based on the data saved in the hard disk.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.14. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></h3>
+<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.15. Saving and loading the data</a></h3>
 <div class="paragraph">
 <p>The appointment manager&#8217;s data is saved in the hard disk automatically after any command that changes the data.<br></p>
 </div>
@@ -347,7 +438,7 @@ Relevant data will be loaded from the external file when the application starts.
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code"><a class="link" href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.15. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></h3>
+<h3 id="generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code"><a class="link" href="#generating-a-pdf-file-of-a-selected-appointment-code-coming-in-v2-0-code">3.16. Generating a PDF file of a selected appointment: <code>[coming in v2.0]</code></a></h3>
 
 </div>
 </div>
@@ -404,9 +495,12 @@ e.g. <code>find team outing</code></p>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
 <li>
+<p><strong>Sort</strong> : <code>sort ORDER</code></p>
+</li>
+<li>
 <p><strong>Undo</strong> : <code>undo</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-29 14:08:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-30 05:10:51 UTC</div></div></div></body></html>
