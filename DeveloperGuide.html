@@ -451,7 +451,7 @@ If the <code>versionPointer</code> is at index <code>historyList.size() - 1</cod
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>sort start_ascending</code>. Commands that do not modify the engagement list, such as <code>sort</code>, will usually not call <code>Model#saveEngagementList()</code>, <code>Model#undoEngagementList()</code> or <code>Model#redoEngagementList()</code>. Thus, the <code>historyList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>sort start ascending</code>. Commands that do not modify the engagement list, such as <code>sort</code>, will usually not call <code>Model#saveEngagementList()</code>, <code>Model#undoEngagementList()</code> or <code>Model#redoEngagementList()</code>. Thus, the <code>historyList</code> remains unchanged.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1054,7 +1054,7 @@ and notifies the user.</p>
 <p>User requests to list appointments</p>
 </li>
 <li>
-<p>System displays the list of appointments in chronological order</p>
+<p>System displays the list of appointments</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1067,16 +1067,9 @@ and notifies the user.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. User specifies ordering method</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. System displays the list of appointments in specified order</p>
+<p>1a. The list of appointments is empty</p>
 <div class="paragraph">
 <p>Use case ends.</p>
-</div>
-</li>
-</ul>
 </div>
 </li>
 </ul>
@@ -1534,6 +1527,56 @@ Steps 2-4 are repeated for as many rounds as required until User runs out of hea
 </li>
 </ul>
 </div>
+<h3 id="use-case-uc16-sort-appointments" class="discrete">Use case: (UC16) Sort appointments</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to Sort appointments and specifies ordering method</p>
+</li>
+<li>
+<p>System sorts the list of appointments by the specified order</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. User does not specify order</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. System shows error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. User specifies an invalid order</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. System shows error message</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1686,4 +1729,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 11:59:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 12:36:42 UTC</div></div></div></body></html>

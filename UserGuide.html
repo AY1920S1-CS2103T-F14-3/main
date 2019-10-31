@@ -200,7 +200,8 @@ Format: <code>list</code></p>
 <div class="sect2">
 <h3 id="sorting-all-appointments-code-sort-code"><a class="link" href="#sorting-all-appointments-code-sort-code">3.5. Sorting all appointments : <code>sort</code></a></h3>
 <div class="paragraph">
-<p>Sorts the list of all appointments in the appointment list by the order specified by user.<br></p>
+<p>Sorts the list of all appointments in the appointment list by the order specified by user.<br>
+Format: <code>sort ORDER</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -209,13 +210,10 @@ Format: <code>list</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Orders supported: <code>description_ascending</code>, <code>description_descending</code>, <code>start_ascending</code>, <code>start_descending</code>, <code>end_ascending</code>, <code>end_descending</code>, <code>priority_ascending</code>, <code>priority_descending</code>.
+Orders supported: <code>description ascending</code>, <code>description descending</code>, <code>start ascending</code>, <code>start descending</code>, <code>end ascending</code>, <code>end descending</code>, <code>priority ascending</code>, <code>priority descending</code>.
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Format: <code>sort ORDER</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -223,7 +221,7 @@ Orders supported: <code>description_ascending</code>, <code>description_descendi
 <div class="ulist">
 <ul>
 <li>
-<p><code>sort start_ascending</code><br>
+<p><code>sort start ascending</code><br>
 Sorts the list displayed in ascending order of start time.</p>
 </li>
 </ul>
@@ -243,6 +241,18 @@ Sorts the list displayed in ascending order of start time.</p>
 <div class="title">Figure 4. Engagement list after sorting by start time in ascending order</div>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete 1</code> will delete the current first engagement displayed.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -307,7 +317,7 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-The complete list can be displayed again using <code>list</code>.
+The unfiltered list can be displayed again using <code>list</code>.
 </td>
 </tr>
 </table>
@@ -381,6 +391,18 @@ Format: <code>clear</code></p>
 <div class="paragraph">
 <p>Undoes the previous command, provided that it exists.<br>
 Format: <code>undo</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Undo supports the following commands that modify the engagement list: <code>add</code>, <code>edit</code>, <code>delete</code> and <code>clear</code>.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -606,4 +628,4 @@ e.g. <code>find team outing</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 11:59:21 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 12:36:42 UTC</div></div></div></body></html>
