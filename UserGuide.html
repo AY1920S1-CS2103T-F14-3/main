@@ -23,10 +23,13 @@
 <li><a href="#undoing-the-previous-command-code-undo-code">3.8. Undoing the previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previous-command-code-redo-code">3.9. Redoing the previous command : <code>redo</code></a></li>
 <li><a href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></li>
-<li><a href="#typing-game-code-tab-game-code">3.11. Typing game : <code>tab game</code></a></li>
-<li><a href="#generating-a-pdf-file-of-engagement-code-pdf-code">3.12. Generating a PDF file of engagement : <code>pdf</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></li>
+<li><a href="#displaying-the-list-of-engagements-for-a-specified-date-calendar-view-only-code-calendar-opendisplay-date-code">3.11. Displaying the list of engagements for a specified date (calendar view only): <code>calendar opendisplay [date]</code></a></li>
+<li><a href="#changing-the-calendar-display-to-the-next-month-calendar-view-only-code-calendar-nextmonth-code">3.12. Changing the calendar display to the next month (calendar view only): <code>calendar nextmonth</code></a></li>
+<li><a href="#changing-the-calendar-display-to-the-previous-month-calendar-view-only-code-calendar-previousmonth-code">3.13. Changing the calendar display to the previous month (calendar view only): <code>calendar previousmonth</code></a></li>
+<li><a href="#typing-game-code-tab-game-code">3.14. Typing game : <code>tab game</code></a></li>
+<li><a href="#generating-a-pdf-file-of-engagement-code-pdf-code">3.15. Generating a PDF file of engagement : <code>pdf</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-and-loading-the-data">3.17. Saving and loading the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">4. FAQ</a></li>
@@ -444,11 +447,73 @@ Redoes the previous undo command, i.e. the appointment deleted before <code>undo
 <div class="sect2">
 <h3 id="changing-to-calendar-view-code-tab-calendar-code"><a class="link" href="#changing-to-calendar-view-code-tab-calendar-code">3.10. Changing to calendar view : <code>tab calendar</code></a></h3>
 <div class="paragraph">
-<p>Changes the current view to the calendar view, which displays appointments inside a calendar.</p>
+<p>Changes the current view to the calendar view, which displays engagements inside a calendar. The calendar displays the number of engagements per day, and more commands can be used to see what those engagements are.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar-view.png" alt="calendar view" width="450">
+</div>
+<div class="title">Figure 12. Calendar view for October 2019</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="typing-game-code-tab-game-code"><a class="link" href="#typing-game-code-tab-game-code">3.11. Typing game : <code>tab game</code></a></h3>
+<h3 id="displaying-the-list-of-engagements-for-a-specified-date-calendar-view-only-code-calendar-opendisplay-date-code"><a class="link" href="#displaying-the-list-of-engagements-for-a-specified-date-calendar-view-only-code-calendar-opendisplay-date-code">3.11. Displaying the list of engagements for a specified date (calendar view only): <code>calendar opendisplay [date]</code></a></h3>
+<div class="paragraph">
+<p>Opens a window displaying the list of engagements for the specified date. This command does not work if the application
+is in another tab (view) or the specified date is invalid.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar-open-display.png" alt="calendar open display" width="450">
+</div>
+<div class="title">Figure 13. Engagement list for 01/11/2019</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you may click on any of the individual cells within the calendar window to open the engagement list
+for that date.</p>
+</div>
+<div class="paragraph">
+<p>After entering <code>calendar opendisplay 01/11/2019</code> into the input box while in calendar view for October 2019, the
+above window opens up. The date 01/11/2019 is still valid because it is displayed in the calendar view for October
+2019, albeit at the end of the grid.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-calendar-display-to-the-next-month-calendar-view-only-code-calendar-nextmonth-code"><a class="link" href="#changing-the-calendar-display-to-the-next-month-calendar-view-only-code-calendar-nextmonth-code">3.12. Changing the calendar display to the next month (calendar view only): <code>calendar nextmonth</code></a></h3>
+<div class="paragraph">
+<p>Changes the calendar view to the month following the currently displayed one. This command does not work if the
+application is in another tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar-next-month.png" alt="calendar next month" width="450">
+</div>
+<div class="title">Figure 14. Changing to the next month from October 2019</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you may click on the blue button with the right arrow next to the calendar&#8217;s month title
+to change the display to the next month.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-the-calendar-display-to-the-previous-month-calendar-view-only-code-calendar-previousmonth-code"><a class="link" href="#changing-the-calendar-display-to-the-previous-month-calendar-view-only-code-calendar-previousmonth-code">3.13. Changing the calendar display to the previous month (calendar view only): <code>calendar previousmonth</code></a></h3>
+<div class="paragraph">
+<p>Changes the calendar view to the month prior to the currently displayed one. This command does not work if the
+application is in another tab.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/calendar-previous-month.png" alt="calendar previous month" width="450">
+</div>
+<div class="title">Figure 15. Changing to the previous month from October 2019</div>
+</div>
+<div class="paragraph">
+<p>Alternatively, you may click on the blue button with the left arrow next to the calendar&#8217;s month title
+to change the display to the previous month.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="typing-game-code-tab-game-code"><a class="link" href="#typing-game-code-tab-game-code">3.14. Typing game : <code>tab game</code></a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/GameWindow.png" alt="GameWindow" width="450">
@@ -463,7 +528,7 @@ window. After the health points reaches zero, <code>GAME OVER</code> is displaye
 </div>
 </div>
 <div class="sect2">
-<h3 id="generating-a-pdf-file-of-engagement-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-engagement-code-pdf-code">3.12. Generating a PDF file of engagement : <code>pdf</code></a></h3>
+<h3 id="generating-a-pdf-file-of-engagement-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-engagement-code-pdf-code">3.15. Generating a PDF file of engagement : <code>pdf</code></a></h3>
 <div class="paragraph">
 <p>Pdf Command allows user to create a document of selected engagement in a given format of document template.
 Document template can be customised based on the customers&#8217;s requirements, however, default document format will be in an eamil format,
@@ -489,13 +554,13 @@ Now, if the user clicks the green refresh button on top right of the documents e
 <div class="content">
 <img src="images/pdf_function_btns.png" alt="pdf function btns" width="800">
 </div>
-<div class="title">Figure 12. refresh button and delete button in documents explorer.</div>
+<div class="title">Figure 16. refresh button and delete button in documents explorer.</div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/pdf_2.png" alt="pdf 2" width="800">
 </div>
-<div class="title">Figure 13. System after clicking refresh button</div>
+<div class="title">Figure 17. System after clicking refresh button</div>
 </div>
 <div class="paragraph">
 <p>User can double click the list item to open the document file on their local computer file system. Below is the sample of generated document from our system.</p>
@@ -504,7 +569,7 @@ Now, if the user clicks the green refresh button on top right of the documents e
 <div class="content">
 <img src="images/pdf_sample.png" alt="pdf sample" width="800">
 </div>
-<div class="title">Figure 14. pdf document sample</div>
+<div class="title">Figure 18. pdf document sample</div>
 </div>
 <div class="paragraph">
 <p>If the user does not want to keep the document, instead of directing the actual directory in the local stystem, user can simply click the red <code>x</code> button, next to the refresh
@@ -515,7 +580,7 @@ Below is the screenshot after user clicks the delete button.</p>
 <div class="content">
 <img src="images/pdf_delete.png" alt="pdf delete" width="800">
 </div>
-<div class="title">Figure 15. pdf delete pop up message</div>
+<div class="title">Figure 19. pdf delete pop up message</div>
 </div>
 <div class="paragraph">
 <p>Now, once system successfully deleted the selected document, system will display the status message above the documents explorer. Below is the screenshot of the system status message after deletion.</p>
@@ -527,14 +592,14 @@ Below is the screenshot after user clicks the delete button.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.13. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.16. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.14. Saving and loading the data</a></h3>
+<h3 id="saving-and-loading-the-data"><a class="link" href="#saving-and-loading-the-data">3.17. Saving and loading the data</a></h3>
 <div class="paragraph">
 <p>The appointment manager&#8217;s data is saved in the hard disk automatically after any command that changes the data.<br></p>
 </div>
@@ -610,4 +675,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:36:55 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-10-31 15:48:11 UTC</div></div></div></body></html>
