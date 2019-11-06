@@ -29,6 +29,7 @@
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 <li><a href="#calendar-window">3.6. Calendar Window</a></li>
 <li><a href="#game-window">3.7. Game Window</a></li>
+<li><a href="#sort-feature">3.8. Sort feature</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -376,7 +377,7 @@ Additionally, it implements the following operations:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new person. The <code>add</code> command also calls <code>Model#saveEngagementList()</code>, causing another modified engagement list state to be saved into the <code>historyList</code>.</p>
+<p>Step 3. The user executes <code>add d/meeting &#8230;&#8203;</code> to add a new engagement. The <code>add</code> command also calls <code>Model#saveEngagementList()</code>, causing another modified engagement list state to be saved into the <code>historyList</code>.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -828,6 +829,147 @@ using constructors containing at least one argument.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="sort-feature"><a class="link" href="#sort-feature">3.8. Sort feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.8.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The sort mechanism is facilitated by <code>EngagementComparator</code>.
+The <code>EngagementComparator</code> is an enum class that implements Java Comparator&lt;Engagement&gt; and specifies the comparing logic of 8 different orders, namely <code>START_TIME</code>, <code>START_TIME_REVERSE</code>, <code>END_TIME</code>, <code>END_TIME_REVERSE</code>, <code>ALPHABETICAL</code>, <code>ALPHABETICAL_REVERSE</code>, <code>PRIORITY</code>, and <code>PRIORITY_REVERSE</code>.
+Each positive sequence comparator compares two <code>Engagements</code> with the field specified within its name in ascending order, and <code>_REVERSE</code> comparators compare in descending order.</p>
+</div>
+<div class="paragraph">
+<p>Additionaly, the <code>Model</code> interface is modified to support the following methods:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Model#setComparator(Comparator&lt;Engagement&gt;)</code>&#8201;&#8212;&#8201;Sets the designated comparator in model.</p>
+</li>
+<li>
+<p><code>Model#updateSortedEngagementList()</code>&#8201;&#8212;&#8201;Executes the sorting method with the <code>currentComparator</code> in model to sort the internal list.</p>
+</li>
+<li>
+<p><code>Model#getSortedEngagementList()</code>&#8201;&#8212;&#8201;Returns the current internal engagement list as an unmodifiable <code>ObservableList</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These operations are implemented in the <code>ModelManager</code> class as <code>ModelManager#setComparator(Comparator&lt;Engagement&gt;)</code>, <code>ModelManager#updateSortedEngagementList()</code> and <code>ModelManager#getSortedEngagementList()</code> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Given below is an example usage scenario and how the sort mechanism behaves at each step.</p>
+</div>
+<div class="paragraph">
+<p>Step 1. The user launches the application for the first time. The <code>currentComparator</code> will be initialized as <code>null</code>.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortListState0.png" alt="SortListState0" width="450">
+</div>
+</div>
+<div class="paragraph">
+<p>Step 2. The user executes <code>sort priority ascending</code> command to sort the engagement list in ascending order of priority. The <code>sort</code> command calls <code>Model#setComparator()</code>, causing the <code>currentComparator</code> in ModelManager to assume the value <code>EngagementComparator#PRIORITY</code>. The command then calls <code>Model#updateSortedEngagementList</code> to execute the sorting.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortListState1.png" alt="SortListState1" width="450">
+</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the sort operation works:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortSequenceDiagram.png" alt="SortSequenceDiagram" width="750">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The lifeline for <code>SortCommand</code> and <code>SortCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 3. The user executes <code>add d/meeting &#8230;&#8203; p/high</code> to add a new engagement. The <code>add</code> command also calls <code>Model#updateSortedEngagementList()</code> with <code>currentComparator</code>, causing the execution of sorting after the new engagement is added to the list, to preserve the current ordering.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortListState2.png" alt="SortListState2" width="450">
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+If the <code>currentComparator</code> assumes the initial value <code>null</code> when <code>Model#updateSortedEngagementList</code> is called, the method will simply catch the <code>NullPointerException</code> thrown by <code>java.object.requireNonNull</code> which will essentially abort the attempt to sort with an empty catch block. The initial chronological order is preserved in this case.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the engagement list or alter the order of the list, such as <code>list</code>, will usually not call <code>Model#setComparator(Comparator&lt;Engagement&gt;)</code>, or <code>Model#updateSortedEngagementList()</code>. Thus, the internal <code>ObservableList</code> remains unchanged.</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortListState3.png" alt="SortListState3" width="450">
+</div>
+</div>
+<div class="paragraph">
+<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
+</div>
+<div class="imageblock" style="text-align: center">
+<div class="content">
+<img src="images/SortUpdateActivityDiagram.png" alt="SortUpdateActivityDiagram" width="190">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.8.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use the <code>List.sort(Comparator&lt;T&gt;)</code> function to sort the list.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Has trivial support for features that updates the predicate of <code>FilteredList</code>, like <code>Find</code>.</p>
+</li>
+<li>
+<p>Cons: There is a need to sort the list each time a command that modifies the elements of the list is executed, which may result in performance issues in case the list size is large.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Replace the <code>FilteredList</code> in <code>ModelManager</code> with a <code>SortedList</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Sorting the list is more intuitive, and the ordering of the engagements is automatically preserved whenever a command that modifies the list elements is executed.</p>
+</li>
+<li>
+<p>Cons: Features like <code>find</code> command may lose functionality and needs extra modification.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1761,4 +1903,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-05 16:05:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-06 07:57:14 UTC</div></div></div></body></html>
