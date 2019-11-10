@@ -68,7 +68,7 @@ Graphical User Interface (GUI). Head over to <a href="#quick-start">Section 2, &
 <p>Type a command in the text box and press <code>Enter</code> to execute it.</p>
 <div class="imageblock">
 <div class="content">
-<img src="images/Ui.png" alt="Ui" width="790">
+<img src="images/Ui.png" alt="Ui" width="750">
 </div>
 </div>
 <div class="olist arabic">
@@ -85,16 +85,16 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>list</code></strong> : lists all appointments.</p>
 </li>
 <li>
-<p><strong><code>tab</code> </strong> <code>game</code>: switches main window to start window of the game.</p>
+<p><strong><code>tab</code> </strong> <code>b/game</code>: switches main window to start window of the game.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong> <code>d/Meeting on Monday</code> : adds an appointment with the description <code>Meeting on Monday</code> to the appointment manager.</p>
+<p><strong><code>add</code></strong> <code>t/appointment s/09/11/2019/1200 e/09/11/2019/1330 a/Jason | Harry d/Meeting on Monday a/HIGH</code> : adds an engagement to the storage with an engagement type of <code>Appointment</code> followed by start time and end time 09-11-2019-12:00 ~ 09-11-2019-13:30, attendee as <code>Jason</code> and <code>Harry</code>, description written as <code>Meeting on Monday</code>, priority of <code>HIGH</code>.</p>
 </li>
 <li>
-<p><strong><code>pdf</code> </strong> <code>i/1 to/Jason from/Harry</code>: generates a document of the selected engagement of index 1, by setting the sender as <code>Harry</code> and receiver of the document as <code>Jason</code>.</p>
+<p><strong><code>pdf</code> </strong> <code>i/1 t/Jason f/Harry</code>: generates a document of the selected engagement of index 1, by setting the sender as <code>Harry</code> and receiver of the document as <code>Jason</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong> <code>3</code> : deletes the 3rd appointment shown in the current list.</p>
+<p><strong><code>delete</code></strong> <code>i/3</code> : deletes the 3rd appointment shown in the current list.</p>
 </li>
 <li>
 <p><strong><code>exit</code></strong> : exits the app.</p>
@@ -125,7 +125,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h3 id="switch-to-different-windows-code-tab-code"><a class="link" href="#switch-to-different-windows-code-tab-code">3.2. Switch to different windows: <code>tab</code></a></h3>
 <div class="paragraph">
 <p>Switches to a different menu in the application window.<br>
-Format: <code>tab [menu_name]</code></p>
+Format: <code>tab b/MENU_NAME</code></p>
 </div>
 <div class="ulist">
 <ul>
@@ -157,42 +157,49 @@ Format: <code>tab [menu_name]</code></p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>tab game</code> is used instead of <code>tab typinggame</code> to simplify typing.
+<code>tab b/game</code> is used instead of <code>tab b/typinggame</code> to simplify typing.<br>
+<code>Engagement</code> window will be the default window upon start up of the application.
 </td>
 </tr>
 </table>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Engagement</code> window will be the default window upon start up of the application.</p>
-</li>
-</ul>
-</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/tab_1_default.png" alt="tab 1 default" width="800">
+<img src="images/tab_1_default.png" alt="tab 1 default" width="520">
 </div>
 <div class="title">Figure 1. Engagement (default) window displayed on start-up of the application.</div>
 </div>
 <div class="paragraph">
 <p>Now, if the user wants to switch to different windows, simply enter the tab command
-with refer to the menu name listed on the left end of the application window. For example, user enters <code>tab calendar</code>
+with refer to the menu name listed on the left end of the application window. For example, user enters <code>tab b/calendar</code>
 switch to calendar view window.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/tab_2.png" alt="tab 2" width="800">
+<img src="images/tab_2.png" alt="tab 2" width="520">
 </div>
-<div class="title">Figure 2. input section with tab command entered <code>tab calendar</code></div>
+<div class="title">Figure 2. input section with tab command entered <code>tab b/calendar</code></div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+Users who prefer using mouse over typing can alternatively click the green tabs on the top to switch to different menu windows.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Below is the screenshot after entering the command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/tab_3.png" alt="tab 3" width="800">
+<img src="images/tab_3.png" alt="tab 3" width="520">
 </div>
+<div class="title">Figure 3. tab switch successfully executed from engagement window to calendar window.</div>
 </div>
 </div>
 <div class="sect2">
@@ -205,7 +212,7 @@ Format: <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/
 <div class="content">
 <img src="images/add_1.png" alt="add 1" width="800">
 </div>
-<div class="title">Figure 3. Enters Add Engagement Command in Command Input Text field.</div>
+<div class="title">Figure 4. Enters Add Engagement Command in Command Input Text field.</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -250,7 +257,7 @@ Adds an engagement with following information;</p>
 <div class="content">
 <img src="images/add_2.png" alt="add 2" width="800">
 </div>
-<div class="title">Figure 4. Engagement successfully saved in system storage.</div>
+<div class="title">Figure 5. Engagement successfully saved in system storage.</div>
 </div>
 </div>
 <div class="sect2">
@@ -295,13 +302,13 @@ Sorts the list displayed in ascending order of start time.</p>
 <div class="content">
 <img src="images/before-sort.png" alt="before sort" width="450">
 </div>
-<div class="title">Figure 5. Engagement list before sorting</div>
+<div class="title">Figure 6. Engagement list before sorting</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/after-sort.png" alt="after sort" width="450">
 </div>
-<div class="title">Figure 6. Engagement list after sorting by start time in ascending order</div>
+<div class="title">Figure 7. Engagement list after sorting by start time in ascending order</div>
 </div>
 </div>
 </div>
@@ -407,13 +414,13 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="images/after-sort.png" alt="after sort" width="450">
 </div>
-<div class="title">Figure 7. Engagement list before the command <code>delete 1</code></div>
+<div class="title">Figure 8. Engagement list before the command <code>delete 1</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/deletion-before-undo.png" alt="deletion before undo" width="450">
 </div>
-<div class="title">Figure 8. Engagement list after deletion</div>
+<div class="title">Figure 9. Engagement list after deletion</div>
 </div>
 </div>
 </div>
@@ -421,7 +428,7 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 9. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 10. Engagement list after the command <code>undo</code></div>
 </div>
 </div>
 <div class="sect2">
@@ -451,13 +458,13 @@ Format: <code>redo</code></p>
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 10. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 11. Engagement list after the command <code>undo</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/redo-result.png" alt="redo result" width="450">
 </div>
-<div class="title">Figure 11. Engagement list after the command <code>redo</code></div>
+<div class="title">Figure 12. Engagement list after the command <code>redo</code></div>
 </div>
 </div>
 </div>
@@ -475,7 +482,7 @@ engagements per day. More commands are provided for interaction with the calenda
 <div class="content">
 <img src="images/calendar-view.png" alt="calendar view" width="450">
 </div>
-<div class="title">Figure 12. Calendar view for October 2019</div>
+<div class="title">Figure 13. Calendar view for October 2019</div>
 </div>
 </div>
 <div class="sect2">
@@ -508,7 +515,7 @@ The calendar&#8217;s display then switches to November 2019 and the engagement l
 <div class="content">
 <img src="images/calendar-open-display.png" alt="calendar open display" width="450">
 </div>
-<div class="title">Figure 13. Engagement list for 01/11/2019</div>
+<div class="title">Figure 14. Engagement list for 01/11/2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -534,7 +541,7 @@ application is in another tab.</p>
 <div class="content">
 <img src="images/calendar-next-month.png" alt="calendar next month" width="450">
 </div>
-<div class="title">Figure 14. Changing to the next month from October 2019</div>
+<div class="title">Figure 15. Changing to the next month from October 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -558,7 +565,7 @@ application is in another tab.</p>
 <div class="content">
 <img src="images/calendar-previous-month.png" alt="calendar previous month" width="450">
 </div>
-<div class="title">Figure 15. Changing to the previous month from October 2019</div>
+<div class="title">Figure 16. Changing to the previous month from October 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -578,7 +585,7 @@ to change the display to the previous month.</p>
 <div class="content">
 <img src="images/StartWindow.png" alt="StartWindow" width="450">
 </div>
-<div class="title">Figure 16. Start window of the game</div>
+<div class="title">Figure 17. Start window of the game</div>
 </div>
 <div class="paragraph">
 <p>Click the <kbd>Start</kbd> button to open the game in a new window.</p>
@@ -587,7 +594,7 @@ to change the display to the previous month.</p>
 <div class="content">
 <img src="images/GameWindow.png" alt="GameWindow" width="450">
 </div>
-<div class="title">Figure 17. Game window</div>
+<div class="title">Figure 18. Game window</div>
 </div>
 <div class="paragraph">
 <p>There are moving words that you can type in order to score points. Once you correctly type the specified word,
@@ -614,7 +621,7 @@ After the health points reaches zero, <code>GAME OVER</code> is displayed as sho
 <div class="content">
 <img src="images/GameOver.png" alt="GameOver" width="450">
 </div>
-<div class="title">Figure 18. Sample game play when game is over</div>
+<div class="title">Figure 19. Sample game play when game is over</div>
 </div>
 <div class="paragraph">
 <p>Once the game is over, you can manually close the application by clicking the <kbd>x</kbd> on the top right hand corner of the window.
@@ -623,65 +630,92 @@ If you want to play the game again, click the <kbd>Start</kbd> button shown in t
 </div>
 <div class="sect2">
 <h3 id="generating-a-pdf-file-of-engagement-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-engagement-code-pdf-code">3.15. Generating a PDF file of engagement : <code>pdf</code></a></h3>
+<div class="sect3">
+<h4 id="usage"><a class="link" href="#usage">3.15.1. Usage</a></h4>
 <div class="paragraph">
 <p>Pdf Command allows user to create a document of selected engagement in a given format of document template.
-Document template can be customised based on the customers&#8217;s requirements, however, default document format will be in an eamil format,
+Document template can be customised based on the customers&#8217;s requirements, however, default document format will be in an email format,
 where the user can set who the user is going to send this document to inform an engagement.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>pdf i/[index] to/[receiver] from/[sender]</code><br></p>
+<p>Format: <code>pdf i/LIST_INDEX t/RECEIVER f/FROM</code><br></p>
 </div>
 <div class="paragraph">
 <p>For example, if the user wants to create a document of an engagement, which has a list index of 1, which can by observed in <code>engagement</code> window.
-User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 to/Harry from/John</code> to generate the document.</p>
+User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 t/Harry f/John</code> to generate the document.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+User can generate multiple report documents with the same engagement, but with different SENDER and RECEIVER names.<br>
+System will not allow generating documents that already exists in the directory.
+</td>
+</tr>
+</table>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pdf_1.png" alt="pdf 1" width="800">
+<img src="images/pdf_1.png" alt="pdf 1" width="520">
 </div>
+<div class="title">Figure 20. report document window</div>
 </div>
 <div class="paragraph">
-<p>Once user enters the command, system will display the command result in the output panel, showing "Engagement Report successfully generated."
-Now, if the user clicks the green refresh button on top right of the documents explorer, explorer will display the generated pdf as a list item.</p>
+<p>Once user enters the command, system will automatically open the generated document and display the command result in the output panel, showing "Engagement Report successfully generated."</p>
 </div>
-<div class="imageblock">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+User can alternatively click the green refresh button on top right of the documents explorer to refresh the documents directory.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock" style="float: left">
 <div class="content">
-<img src="images/pdf_function_btns.png" alt="pdf function btns" width="800">
+<img src="images/pdf_function_btns.png" alt="pdf function btns" width="450">
 </div>
-<div class="title">Figure 19. refresh button and delete button in documents explorer.</div>
+<div class="title">Figure 21. refresh button and delete button.</div>
 </div>
-<div class="imageblock">
+<div class="imageblock left">
 <div class="content">
-<img src="images/pdf_2.png" alt="pdf 2" width="800">
+<img src="images/pdf_2.png" alt="pdf 2" width="450">
 </div>
-<div class="title">Figure 20. System after clicking refresh button</div>
+<div class="title">Figure 22. After clicking refresh button</div>
 </div>
 <div class="paragraph">
-<p>User can double click the list item to open the document file on their local computer file system. Below is the sample of generated document from our system.</p>
+<p>User can also double click the list item in the documents explorer tree view to open the document file on their local computer file system. Below is the sample of generated document from the system.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
-<img src="images/pdf_sample.png" alt="pdf sample" width="800">
+<img src="images/pdf_sample.png" alt="pdf sample" width="600">
 </div>
-<div class="title">Figure 21. pdf document sample</div>
+<div class="title">Figure 23. pdf document sample</div>
 </div>
 <div class="paragraph">
-<p>If the user does not want to keep the document, instead of directing the actual directory in the local stystem, user can simply click the red <code>x</code> button, next to the refresh
+<p>If the user does not want to keep the document, instead of directing the actual directory in the local system, user can simply click the red <code>x</code> button, next to the refresh
 button to delete the selected document list item. Once system displays the popup message to confirm the user&#8217;s decision, user will click the <code>OK</code> button to confirm deletion. Delete function will only available when user has pre-selected the document list item and the selected item must be a .pdf form, not directory.
 Below is the screenshot after user clicks the delete button.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pdf_delete.png" alt="pdf delete" width="800">
+<img src="images/pdf_delete.png" alt="pdf delete" width="520">
 </div>
-<div class="title">Figure 22. pdf delete pop up message</div>
+<div class="title">Figure 24. pdf delete pop up message</div>
 </div>
 <div class="paragraph">
 <p>Now, once system successfully deleted the selected document, system will display the status message above the documents explorer. Below is the screenshot of the system status message after deletion.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/pdf_delete_after.png" alt="pdf delete after" width="800">
+<img src="images/pdf_delete_after.png" alt="pdf delete after" width="520">
 </div>
 </div>
 <div class="admonitionblock note">
@@ -695,6 +729,35 @@ PDF generation and deletion operations cannot be undone via <code>undo</code> co
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="error-handling"><a class="link" href="#error-handling">3.15.2. Error Handling</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Documents Explorer in Report Window only displays files with .pdf format in reports/ directory. Files with different format will not be displayed in the explorer.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/pdf_error_2.png" alt="pdf error 2" width="600">
+</div>
+<div class="title">Figure 25. duplicate file exception message displayed in status text field.</div>
+</div>
+</li>
+<li>
+<p>System will not allow user to delete directories in the documents explorer tree view. (Figure 26)</p>
+</li>
+<li>
+<p>System will throw an exception message in the status field if user locks the document. (Figure 26)</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/pdf_error_1.png" alt="pdf error 1" width="600">
+</div>
+<div class="title">Figure 26. file deletion exception message displayed in the status text field.</div>
+</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -732,23 +795,23 @@ Relevant data will be loaded from the external file when the application starts.
 <ul>
 <li>
 <p><strong>Add</strong> <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/mm/YYYY/HHMM] l/LOCATION a/ATTENDEES d/DESCRIPTION p/PRIORITY</code><br>
-e.g. <code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/John, Elijah, Sam d/CS2103T Discussion p/High</code></p>
+e.g. <code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/John | Elijah | Sam d/CS2103T Discussion p/HIGH</code></p>
 </li>
 <li>
-<p><strong>Tab</strong>: <code>tab MENU_NAME</code></p>
+<p><strong>Tab</strong>: <code>tab b/MENU_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add Engagement</strong> : <code>tab engagement</code></p>
+<p><strong>Add Engagement</strong> : <code>tab b/engagement</code></p>
 </li>
 <li>
-<p><strong>Calendar</strong> : <code>tab calendar</code></p>
+<p><strong>Calendar</strong> : <code>tab b/calendar</code></p>
 </li>
 <li>
-<p><strong>Game</strong> : <code>tab game</code></p>
+<p><strong>Game</strong> : <code>tab b/game</code></p>
 </li>
 <li>
-<p><strong>Report</strong> : <code>tab report</code></p>
+<p><strong>Report</strong> : <code>tab b/report</code></p>
 </li>
 </ul>
 </div>
@@ -757,8 +820,8 @@ e.g. <code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/Joh
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Delete</strong> : <code>delete i/INDEX</code><br>
+e.g. <code>delete i/3</code></p>
 </li>
 <li>
 <p><strong>PDF</strong> : <code>pdf i/INDEX to/RECEIVER from/SENDER</code></p>
@@ -781,4 +844,4 @@ e.g. <code>delete 3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 06:38:24 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 06:43:12 UTC</div></div></div></body></html>
