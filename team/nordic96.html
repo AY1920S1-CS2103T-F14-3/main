@@ -243,22 +243,30 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p><strong><code>list</code></strong> : lists all appointments.</p>
+<p><strong><code>list</code></strong> : Lists all appointments.</p>
 </li>
 <li>
-<p><strong><code>tab</code> </strong> <code>b/game</code>: switches main window to start window of the game.</p>
+<p><strong><code>tab</code> </strong> <code>b/game</code> : Switches main window to start window of the game.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong> <code>t/appointment s/09/11/2019/1200 e/09/11/2019/1330 a/Jason | Harry d/Meeting on Monday a/HIGH</code> : adds an engagement to the storage with an engagement type of <code>Appointment</code> followed by start time and end time 09-11-2019-12:00 ~ 09-11-2019-13:30, attendee as <code>Jason</code> and <code>Harry</code>, description written as <code>Meeting on Monday</code>, priority of <code>HIGH</code>.</p>
+<p><strong><code>add</code></strong> <code>t/appointment s/09/11/2019/1200 e/09/11/2019/1330 l/NUS a/Ben|Tom d/Meeting on Monday p/HIGH</code> :<br>
+Adds an engagement to the engagements list with the following details:<br>
+Engagement type: Appointment<br>
+Start time: 09/11/2019 at 1200 hours<br>
+End time: 09/11/2019 at 1330 hours<br>
+Location: NUS<br>
+Attendees: Ben and Tom<br>
+Description: Meeting on Monday<br>
+Priority: High<br></p>
 </li>
 <li>
-<p><strong><code>pdf</code> </strong> <code>i/1 t/Jason f/Harry</code>: generates a document of the selected engagement of index 1, by setting the sender as <code>Harry</code> and receiver of the document as <code>Jason</code>.</p>
+<p><strong><code>pdf</code> </strong> <code>i/1 t/Jason f/Harry</code>: Generates a document of the selected engagement of index 1, by setting the sender as <code>Harry</code> and receiver of the document as <code>Jason</code>.</p>
 </li>
 <li>
-<p><strong><code>delete</code></strong> <code>i/3</code> : deletes the 3rd appointment shown in the current list.</p>
+<p><strong><code>delete</code></strong> <code>i/3</code> : Deletes the 3rd appointment shown in the current list.</p>
 </li>
 <li>
-<p><strong><code>exit</code></strong> : exits the app.</p>
+<p><strong><code>exit</code></strong> : Exits the app.</p>
 </li>
 </ul>
 </div>
@@ -280,20 +288,21 @@ Format: <code>tab b/MENU_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Typee application has mainly 4 major features/menus. User needs to switch to respective windows to perform different commands and features of the system.</p>
+<p>Typee has 4 major features/menus. They comprise of:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Engagement</p>
+<p>Engagements List</p>
 </li>
 <li>
-<p>TypingGame</p>
+<p>Typing Game</p>
 </li>
 <li>
-<p>Calendar</p>
+<p>Calendar View</p>
 </li>
 <li>
-<p>Report</p>
+<p>Report Generator
+Users can switch between respective windows in order to make full use of the application.</p>
 </li>
 </ul>
 </div>
@@ -308,7 +317,7 @@ Format: <code>tab b/MENU_NAME</code></p>
 </td>
 <td class="content">
 <code>tab b/game</code> is used instead of <code>tab b/typinggame</code> to simplify typing.<br>
-<code>Engagement</code> window will be the default window upon start up of the application.
+The <code>Engagement</code> window will be the default window upon starting the application.
 </td>
 </tr>
 </table>
@@ -719,4 +728,4 @@ and the directory explorer for <code>reports/</code> as a item list.</p>
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 07:34:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 08:23:43 UTC</div></div></div></body></html>
