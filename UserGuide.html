@@ -280,7 +280,7 @@ Format: <code>list</code></p>
 <h3 id="sorting-all-appointments-code-sort-code"><a class="link" href="#sorting-all-appointments-code-sort-code">3.5. Sorting all appointments : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts the list of all appointments in the appointment list by the order specified by user.<br>
-Format: <code>sort ORDER</code></p>
+Format: <code>sort p/ PROPERTY o/ORDER</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -289,7 +289,8 @@ Format: <code>sort ORDER</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Orders supported: <code>description ascending</code>, <code>description descending</code>, <code>start ascending</code>, <code>start descending</code>, <code>end ascending</code>, <code>end descending</code>, <code>priority ascending</code>, <code>priority descending</code>.
+Properties supported: <code>start</code> (Start time), <code>end</code> (End time), <code>priority</code> and <code>description</code><br>
+Orders supported: <code>ascending</code> and <code>descending</code>.
 </td>
 </tr>
 </table>
@@ -300,7 +301,9 @@ Orders supported: <code>description ascending</code>, <code>description descendi
 <div class="ulist">
 <ul>
 <li>
-<p><code>sort start ascending</code><br>
+<p><code>sort</code><br>
+<code>p/start</code><br>
+<code>o/ascending</code><br>
 Sorts the list displayed in ascending order of start time.</p>
 </li>
 </ul>
@@ -313,13 +316,43 @@ Sorts the list displayed in ascending order of start time.</p>
 </div>
 <div class="title">Figure 6. Engagement list before sorting</div>
 </div>
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/after-p.png" alt="after p" width="450">
+</div>
+<div class="title">Figure 7. Engagement list after the execution of <code>sort</code></div>
+</div>
+<div class="imageblock" style="float: left">
+<div class="content">
+<img src="images/after-o.png" alt="after o" width="450">
+</div>
+<div class="title">Figure 8. Engagement list after the execution of <code>p/start</code></div>
+</div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/after-sort.png" alt="after sort" width="450">
 </div>
-<div class="title">Figure 7. Engagement list after sorting by start time in ascending order</div>
+<div class="title">Figure 9. Engagement list after the execution of <code>o/ascending</code></div>
 </div>
 </div>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<code>sort</code> command can be done in one shot by giving all attributes at once. e.g. figure below shows the execution of <code>sort p/start o/ascending</code>.
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/after-oneshot-sort.png" alt="after oneshot sort" width="450">
+</div>
+<div class="title">Figure 10. Sorting engagement list by providing attributes at once</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -406,9 +439,9 @@ Undo supports the following commands that modify the engagement list: <code>add<
 <div class="ulist">
 <ul>
 <li>
-<p><code>add d/Meeting on Monday</code><br>
+<p><code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/John, Elijah, Sam d/CS2103T Discussion p/High</code><br>
 <code>undo</code><br>
-Undoes the add command, i.e. the engagement with the description <code>Meeting on Monday</code> will no longer be in the appointment manager.</p>
+Undoes the add command, i.e. the engagement with the description <code>CS2103T Discussion</code> will no longer be in the appointment manager.</p>
 </li>
 <li>
 <p><code>delete 1</code><br>
@@ -421,15 +454,15 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <div class="imageblock" style="float: left">
 <div class="content">
-<img src="images/after-sort.png" alt="after sort" width="450">
+<img src="images/after-list.png" alt="after list" width="450">
 </div>
-<div class="title">Figure 8. Engagement list before the command <code>delete 1</code></div>
+<div class="title">Figure 11. Engagement list before the command <code>delete 1</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/deletion-before-undo.png" alt="deletion before undo" width="450">
 </div>
-<div class="title">Figure 9. Engagement list after deletion</div>
+<div class="title">Figure 12. Engagement list after deletion</div>
 </div>
 </div>
 </div>
@@ -437,7 +470,7 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 10. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 13. Engagement list after the command <code>undo</code></div>
 </div>
 </div>
 <div class="sect2">
@@ -467,13 +500,13 @@ Format: <code>redo</code></p>
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 11. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 14. Engagement list after the command <code>undo</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/redo-result.png" alt="redo result" width="450">
 </div>
-<div class="title">Figure 12. Engagement list after the command <code>redo</code></div>
+<div class="title">Figure 15. Engagement list after the command <code>redo</code></div>
 </div>
 </div>
 </div>
@@ -508,7 +541,7 @@ The calendar&#8217;s display then switches to December 2019 and the engagement l
 <div class="content">
 <img src="images/calendar-open-display.png" alt="calendar open display" width="450">
 </div>
-<div class="title">Figure 13. Engagement list for 01/11/2019</div>
+<div class="title">Figure 16. Engagement list for 01/11/2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -544,7 +577,7 @@ application is in another tab or if attempting to go above the maximum allowable
 <div class="content">
 <img src="images/calendar-next-month.png" alt="calendar next month" width="450">
 </div>
-<div class="title">Figure 14. Changing to the next month from November 2019</div>
+<div class="title">Figure 17. Changing to the next month from November 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -568,7 +601,7 @@ application is in another tab or if attempting to go below the minimum allowable
 <div class="content">
 <img src="images/calendar-previous-month.png" alt="calendar previous month" width="450">
 </div>
-<div class="title">Figure 15. Changing to the previous month from November 2019</div>
+<div class="title">Figure 18. Changing to the previous month from November 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -588,7 +621,7 @@ to change the display to the previous month. The button will not work if the cal
 <div class="content">
 <img src="images/StartWindow.png" alt="StartWindow" width="450">
 </div>
-<div class="title">Figure 16. Start window of the game</div>
+<div class="title">Figure 19. Start window of the game</div>
 </div>
 <div class="paragraph">
 <p>Click the <kbd>Start</kbd> button to open the game in a new window.</p>
@@ -597,7 +630,7 @@ to change the display to the previous month. The button will not work if the cal
 <div class="content">
 <img src="images/GameWindow.png" alt="GameWindow" width="450">
 </div>
-<div class="title">Figure 17. Game window</div>
+<div class="title">Figure 20. Game window</div>
 </div>
 <div class="paragraph">
 <p>There are moving words that you can type in order to score points. Once you correctly type the specified word,
@@ -624,7 +657,7 @@ After the health points reaches zero, <code>GAME OVER</code> is displayed as sho
 <div class="content">
 <img src="images/GameOver.png" alt="GameOver" width="450">
 </div>
-<div class="title">Figure 18. Sample game play when game is over</div>
+<div class="title">Figure 21. Sample game play when game is over</div>
 </div>
 <div class="paragraph">
 <p>Once the game is over, you can manually close the application by clicking the <kbd>x</kbd> on the top right hand corner of the window.
@@ -664,7 +697,7 @@ System will not allow generating documents that already exists in the directory.
 <div class="content">
 <img src="images/pdf_1.png" alt="pdf 1" width="520">
 </div>
-<div class="title">Figure 19. report document window</div>
+<div class="title">Figure 22. report document window</div>
 </div>
 <div class="paragraph">
 <p>Once user enters the command, system will automatically open the generated document and display the command result in the output panel, showing "Engagement Report successfully generated."</p>
@@ -685,13 +718,13 @@ User can alternatively click the green refresh button on top right of the docume
 <div class="content">
 <img src="images/pdf_function_btns.png" alt="pdf function btns" width="450">
 </div>
-<div class="title">Figure 20. refresh button and delete button.</div>
+<div class="title">Figure 23. refresh button and delete button.</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/pdf_2.png" alt="pdf 2" width="450">
 </div>
-<div class="title">Figure 21. After clicking refresh button</div>
+<div class="title">Figure 24. After clicking refresh button</div>
 </div>
 <div class="paragraph">
 <p>User can also double click the list item in the documents explorer tree view to open the document file on their local computer file system. Below is the sample of generated document from the system.</p>
@@ -700,7 +733,7 @@ User can alternatively click the green refresh button on top right of the docume
 <div class="content">
 <img src="images/pdf_sample.png" alt="pdf sample" width="600">
 </div>
-<div class="title">Figure 22. pdf document sample</div>
+<div class="title">Figure 25. pdf document sample</div>
 </div>
 <div class="paragraph">
 <p>If the user does not want to keep the document, instead of directing the actual directory in the local system, user can simply click the red <code>x</code> button, next to the refresh
@@ -711,7 +744,7 @@ Below is the screenshot after user clicks the delete button.</p>
 <div class="content">
 <img src="images/pdf_delete.png" alt="pdf delete" width="520">
 </div>
-<div class="title">Figure 23. pdf delete pop up message</div>
+<div class="title">Figure 26. pdf delete pop up message</div>
 </div>
 <div class="paragraph">
 <p>Now, once system successfully deleted the selected document, system will display the status message above the documents explorer. Below is the screenshot of the system status message after deletion.</p>
@@ -744,7 +777,7 @@ PDF generation and deletion operations cannot be undone via <code>undo</code> co
 <div class="content">
 <img src="images/pdf_error_2.png" alt="pdf error 2" width="600">
 </div>
-<div class="title">Figure 24. duplicate file exception message displayed in status text field.</div>
+<div class="title">Figure 27. duplicate file exception message displayed in status text field.</div>
 </div>
 </li>
 <li>
@@ -756,7 +789,7 @@ PDF generation and deletion operations cannot be undone via <code>undo</code> co
 <div class="content">
 <img src="images/pdf_error_1.png" alt="pdf error 1" width="600">
 </div>
-<div class="title">Figure 25. file deletion exception message displayed in the status text field.</div>
+<div class="title">Figure 28. file deletion exception message displayed in the status text field.</div>
 </div>
 </li>
 </ol>
@@ -868,4 +901,4 @@ e.g. <code>delete i/3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 08:23:43 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-10 08:37:51 UTC</div></div></div></body></html>
