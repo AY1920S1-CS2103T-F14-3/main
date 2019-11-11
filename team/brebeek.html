@@ -345,7 +345,7 @@ Sorts the list displayed in ascending order of start time.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete 1</code> will delete the current first engagement displayed.
+After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete i/1</code> will delete the current first engagement displayed.
 </td>
 </tr>
 </table>
@@ -364,7 +364,7 @@ Format: <code>undo</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Undo supports the following commands that modify the engagement list: <code>add</code>, <code>edit</code>, <code>delete</code> and <code>clear</code>.
+Undo supports the following commands that modify the engagement list: <code>add</code>, <code>delete</code> and <code>clear</code>.
 </td>
 </tr>
 </table>
@@ -380,7 +380,7 @@ Undo supports the following commands that modify the engagement list: <code>add<
 Undoes the add command, i.e. the engagement with the description <code>CS2103T Discussion</code> will no longer be in the appointment manager.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
+<p><code>delete i/1</code><br>
 <code>undo</code><br>
 Undoes the delete command, i.e. restores the first engagement in the original displayed list.</p>
 </li>
@@ -392,7 +392,7 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="../images/after-list.png" alt="after list" width="450">
 </div>
-<div class="title">Figure 7. Engagement list before the command <code>delete 1</code></div>
+<div class="title">Figure 7. Engagement list before the command <code>delete i/1</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
@@ -421,9 +421,9 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverts the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>delete i/1</code><br>
+<code>undo</code> (reverts the <code>delete i/1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete i/1</code> command)<br></p>
 </li>
 </ul>
 </div>
@@ -702,4 +702,4 @@ and carry out administrative tasks.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:51:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:58:40 UTC</div></div></div></body></html>

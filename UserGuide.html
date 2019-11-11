@@ -90,14 +90,14 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p><strong><code>tab</code> </strong> <code>b/game</code> : Switches main window to start window of the game.</p>
 </li>
 <li>
-<p><strong><code>add</code></strong> <code>t/appointment s/09/11/2019/1200 e/09/11/2019/1330 l/NUS a/Ben|Tom d/Meeting on Monday p/HIGH</code> :<br>
+<p><strong><code>add</code></strong> <code>t/appointment s/09/11/2019/1200 e/09/11/2019/1330 l/NUS d/Meeting on Monday a/Ben|Tom p/HIGH</code> :<br>
 Adds an engagement to the engagements list with the following details:<br>
 Engagement type: Appointment<br>
 Start time: 09/11/2019 at 1200 hours<br>
 End time: 09/11/2019 at 1330 hours<br>
 Location: NUS<br>
-Attendees: Ben and Tom<br>
 Description: Meeting on Monday<br>
+Attendees: Ben and Tom<br>
 Priority: High<br></p>
 </li>
 <li>
@@ -156,6 +156,9 @@ to type the relevant command word to get prompted about subsequent inputs.</p>
 <div class="title">Figure 1. The interactive component of Typee is highlighted above.</div>
 </div>
 <div class="paragraph">
+<p><br></p>
+</div>
+<div class="paragraph">
 <p>With interactive parsing, the aforementioned 'Add' command reduces to the following sequence of inputs: -</p>
 </div>
 <div class="listingblock">
@@ -172,9 +175,12 @@ p/High</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/interactive_parsing_1.png" alt="interactive parsing 1" width="520">
+<img src="images/interactive_parsing_1.png" alt="interactive parsing 1" width="800" height="90">
 </div>
 <div class="title">Figure 2. Typee&#8217;s prompt in response to the user entering <code>add</code></div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="paragraph">
 <p>Experienced users that have a grasp of the structure and format of various commands can also benefit from this feature.
@@ -194,15 +200,21 @@ a/John | Smith p/High</code></pre>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/interactive_parsing_2.png" alt="interactive parsing 2" width="520">
+<img src="images/interactive_parsing_2.png" alt="interactive parsing 2" width="800" height="90">
 </div>
 <div class="title">Figure 3. A user about to pass 3 arguments to Typee in one input, following <code>add</code>.</div>
 </div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/interactive_parsing_3.png" alt="interactive parsing 3" width="520">
+<img src="images/interactive_parsing_3.png" alt="interactive parsing 3" width="800" height="90">
 </div>
 <div class="title">Figure 4. Typee&#8217;s response to the above input.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="paragraph">
 <p>Finally, a highly experienced user can create an 'Add' command in the conventional manner, i.e. by typing out
@@ -218,6 +230,10 @@ structures and idiosyncrasies are detailed in the sections belonging to the resp
 </div>
 <div class="paragraph">
 <p>In general, commands are of two types - <strong>static</strong> and <strong>dynamic</strong>.</p>
+</div>
+<div class="paragraph">
+<p>At any point of time, the user can enter <code>// current</code> to view the current input constraints and
+input <code>// clear</code> to stop parsing the current command. These are examples of <strong>dynamic</strong> commands.</p>
 </div>
 <div class="paragraph">
 <p>Static commands are executed one at a time, whereas dynamic commands can be built at any point of time, even while
@@ -254,7 +270,8 @@ exit</code></pre>
 </td>
 <td class="content">
 Calling another dynamic command in the midst of building a <code>Tab</code> command will erase the details of the command preceding
-'Tab'. This happens if the command preceding <code>Tab</code> isn&#8217;t fully built.
+'Tab'. This happens if the command preceding <code>Tab</code> isn&#8217;t fully built.<br>
+For example: <code>add t/meeting</code> <code>tab</code> <code>// current</code> <code>b/calendar</code> will erase the information of the add command.
 </td>
 </tr>
 </table>
@@ -301,19 +318,44 @@ invalid and the user is prompted to enter a start date-time.</p>
 <p>This happens because the parser expects an argument for <code>s/</code>, but there is no such argument.
 As a consequence, all arguments that are supposed to be entered after <code>s/</code> (like <code>l/</code>) are not parsed.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/interactive_parsing_6.png" alt="interactive parsing 6" width="800" height="90">
+</div>
+<div class="title">Figure 5. Typee&#8217;s response to <code>add t/meeting l/Meeting Room 2</code>.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
 <div class="paragraph">
 <p>Similarly, <code>add t/meeting s/15/01/2019/1500 d/desc p/low</code> is parsed till <code>s/</code> and a prompt is raised to enter a valid end date-time, leaving <code>d/</code>
 and <code>p/</code> untouched.</p>
 </div>
-<div class="paragraph">
-<p>However, there lies a quirk with respect to the ordering of inputs if the parser has sufficient arguments.</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/interactive_parsing_7.png" alt="interactive parsing 7" width="800" height="90">
+</div>
+<div class="title">Figure 6. Typee&#8217;s response to <code>add t/meeting s/15/01/2019/1500 d/desc p/low</code>.</div>
 </div>
 <div class="paragraph">
-<p>Consider the case when the user inputs <code>add t/meeting e/15/11/2019/1500 s/15/11/2019/1400</code>. This input is deemed <strong>valid</strong> even
-though <code>e/</code> and <code>s/</code> are flipped. This is because after 't/', the parser expects to find an <code>s/</code>, which is in-turn contained in the input.</p>
+<p><br></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There lies a quirk with respect to the ordering of inputs if the parser has sufficient arguments.<br>
+Consider the case when the user inputs <code>add t/meeting e/15/11/2019/1500 s/15/11/2019/1400</code>. This input is deemed <strong>valid</strong> even
+though <code>e/</code> and <code>s/</code> are flipped. This is because after 't/', the parser expects to find an <code>s/</code>, which is in-turn contained in the input.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Thus, to summarize, the parser continues parsing in the order of the expected arguments, as long as the corresponding prefixes are found in the input.</p>
+<p><strong>Thus, to summarize, the parser continues parsing in the order of the expected arguments, as long as the corresponding prefixes are found in the input.</strong></p>
 </div>
 </div>
 <div class="sect3">
@@ -341,15 +383,21 @@ the subsequent input must begin with <code>t/&#8230;&#8203;</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/interactive_parsing_4.png" alt="interactive parsing 4" width="520">
+<img src="images/interactive_parsing_4.png" alt="interactive parsing 4" width="800" height="90">
 </div>
-<div class="title">Figure 5. A user about to enter an invalid input.</div>
+<div class="title">Figure 7. A user about to enter an invalid input.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/interactive_parsing_5.png" alt="interactive parsing 5" width="520">
+<img src="images/interactive_parsing_5.png" alt="interactive parsing 5" width="800" height="90">
 </div>
-<div class="title">Figure 6. Typee&#8217;s response to the invalid input.</div>
+<div class="title">Figure 8. Typee&#8217;s response to the invalid input.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="paragraph">
 <p>Attempting to replace the argument for a parameter or supply different arguments to the same parameter will result in Typee rejecting
@@ -370,7 +418,7 @@ t/interview</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Last but not least, Typee will reject cases wherein the user supplied excessive and irrelevant arguments.
+<p>Last but not least, Typee will reject cases wherein the user supplies excessive and irrelevant arguments.
 <code>add t/meeting s/16/11/2019/1600 e/16/11/2019/1700 l/COM-1 d/Meeting a/Damith p/High o/High</code> will be rejected because <code>o/</code>
 is not a parameter for the 'Add' command.</p>
 </div>
@@ -421,7 +469,7 @@ Users can switch between respective windows in order to make full use of the app
 </div>
 <div class="paragraph">
 <p>If the user wants to switch to different windows, simply enter the tab command
-with refer to the menu name listed on the left end of the application window.<br></p>
+with a reference to the menu name listed on the left end of the application window.<br></p>
 </div>
 <div class="paragraph">
 <p>For example, user enters <code>tab b/calendar</code>
@@ -444,18 +492,34 @@ Users who prefer using mouse over typing can alternatively click the green tabs 
 <img src="images/tab_2.png" alt="tab 2" width="800">
 </div>
 </div>
+<div class="paragraph">
+<p>Users can start building a command in one tab, switch tabs midway and finish building the command in another tab.
+This can be achieved by the following sequence of inputs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>add
+t/meeting s/15/11/2019/1600 e/15/11/2019/1700
+tab
+b/calendar
+l/COM-1 d/Meeting a/Damith p/High</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="adding-an-engagement-code-add-code"><a class="link" href="#adding-an-engagement-code-add-code">3.4. Adding an engagement: <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds an engagement to the system. Engagement can be in different types; <code>Engagement</code>, <code>Meeting</code> and <code>Interview</code><br>
-Format: <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/mm/YYYY/HHMM] l/LOCATION a/ATTENDEES d/DESCRIPTION p/PRIORITY</code></p>
+<p>Adds an engagement to the system. There are three types of engagements; <code>Appointment</code>, <code>Meeting</code> and <code>Interview</code><br>
+Format: <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/mm/YYYY/HHMM] l/LOCATION d/DESCRIPTION a/ATTENDEES[Separated by '|'] p/PRIORITY</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/add_1.png" alt="add 1" width="800">
+<img src="images/add_1.png" alt="add 1" width="800" height="90">
 </div>
-<div class="title">Figure 7. Enters Add Engagement Command in Command Input Text field.</div>
+<div class="title">Figure 9. Enters Add Engagement Command in Command Input Text field.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -463,7 +527,7 @@ Format: <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/
 <div class="ulist">
 <ul>
 <li>
-<p><code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/John, Elijah, Sam d/CS2103T Discussion p/High</code><br>
+<p><code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 d/CS2103T Discussion a/John | Elijah | Sam p/High</code><br>
 Adds an engagement with following information;</p>
 <div class="ulist">
 <ul>
@@ -480,10 +544,10 @@ Adds an engagement with following information;</p>
 <p>Location: COM-2-B1-03</p>
 </li>
 <li>
-<p>Attendees: John, Elijah, Sam</p>
+<p>Engagement Description: CS2103T Discussion</p>
 </li>
 <li>
-<p>Engagement Description: CS2103T Discussion</p>
+<p>Attendees: John, Elijah, Sam</p>
 </li>
 <li>
 <p>Priority: High</p>
@@ -494,13 +558,112 @@ Adds an engagement with following information;</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>After user enters the above command, system will save the engagement information and displays the brief engagement information as a list item on the List View.</p>
+<p>After user enters the above command, Typee will store the information and append it to the displayed list of engagements.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/add_2.png" alt="add 2" width="800">
 </div>
-<div class="title">Figure 8. Engagement successfully saved in system storage.</div>
+<div class="title">Figure 10. Engagement successfully saved in system storage.</div>
+</div>
+<div class="paragraph">
+<p><br></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+The arguments to this command can be entered sequentially, leveraging the interaction offered by Typee.<br>
+Example: <code>add</code> <code>t/meeting</code> <code>s/11/11/2019/1500</code> &#8230;&#8203; <code>p/High</code>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The table below summarizes the parameters of the add command.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Prefix</th>
+<th class="tableblock halign-left valign-top">Constraints</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engagement type</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>t/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engagements must be one of 'meeting', 'appointment' or 'interview'.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Start Date-Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>s/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is when the engagement to be added begins.<br>
+The start date-time must be entered in the <code>dd/MM/yyyy/HHmm</code> format.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">End Date-Time</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>e/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is when the engagement to be added ends.<br>
+The end date-time must be entered in the <code>dd/MM/yyyy/HHmm</code> format and occur <strong>after</strong> the start time.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>l/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The location of the engagement. The location must be non-empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A brief description of what the engagement is about. The description must be non-empty.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Attendees</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The list of people who will be present at the engagement. Individuals must be separated by
+a vertical line.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>p/</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Priority level of the engagement. The priority level can be one of 'Low', 'Medium', 'High' or 'None'.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>If the engagement to be added clashes with an existing one, the user will be notified of the add command&#8217;s rejection.<br>
+An engagement clashes with another engagement if <strong>all</strong> of the below conditions are satisfied:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is an overlap in the time-slot occupied by the engagements.</p>
+</li>
+<li>
+<p>The engagements are held at the same location</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The list of attendees <strong>does not</strong> represent unique people. This is why attendees aren&#8217;t considered in engagement conflict resolution.
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -508,6 +671,9 @@ Adds an engagement with following information;</p>
 <div class="paragraph">
 <p>Lists all engagements.<br>
 Format: <code>list</code></p>
+</div>
+<div class="paragraph">
+<p>This command is useful in retrieving the original engagement list after executing commands that modify the viewed list, like <code>find</code>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -548,25 +714,25 @@ Sorts the list displayed in ascending order of start time.</p>
 <div class="content">
 <img src="images/before-sort.png" alt="before sort" width="450">
 </div>
-<div class="title">Figure 9. Engagement list before sorting</div>
+<div class="title">Figure 11. Engagement list before sorting</div>
 </div>
 <div class="imageblock" style="float: left">
 <div class="content">
 <img src="images/after-p.png" alt="after p" width="450">
 </div>
-<div class="title">Figure 10. Engagement list after the execution of <code>sort</code></div>
+<div class="title">Figure 12. Engagement list after the execution of <code>sort</code></div>
 </div>
 <div class="imageblock" style="float: left">
 <div class="content">
 <img src="images/after-o.png" alt="after o" width="450">
 </div>
-<div class="title">Figure 11. Engagement list after the execution of <code>p/start</code></div>
+<div class="title">Figure 13. Engagement list after the execution of <code>p/start</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/after-sort.png" alt="after sort" width="450">
 </div>
-<div class="title">Figure 12. Engagement list after the execution of <code>o/ascending</code></div>
+<div class="title">Figure 14. Engagement list after the execution of <code>o/ascending</code></div>
 </div>
 </div>
 </div>
@@ -586,7 +752,7 @@ Sorts the list displayed in ascending order of start time.</p>
 <div class="content">
 <img src="images/after-oneshot-sort.png" alt="after oneshot sort" width="450">
 </div>
-<div class="title">Figure 13. Sorting engagement list by providing attributes at once</div>
+<div class="title">Figure 15. Sorting engagement list by providing attributes at once</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -595,7 +761,7 @@ Sorts the list displayed in ascending order of start time.</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete 1</code> will delete the current first engagement displayed.
+After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete i/1</code> will delete the current first engagement displayed.
 </td>
 </tr>
 </table>
@@ -731,7 +897,7 @@ a/Betsy d/Project Meeting l/NUS p/None</code></pre>
 <h3 id="deleting-an-engagement-code-delete-code"><a class="link" href="#deleting-an-engagement-code-delete-code">3.8. Deleting an engagement : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified engagement from the engagement list.<br>
-Format: <code>delete INDEX</code></p>
+Format: <code>delete i/INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -756,7 +922,7 @@ Format: <code>delete INDEX</code></p>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>list
-delete 2</code></pre>
+delete i/2</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -765,7 +931,7 @@ delete 2</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay highlight"><code>find p/Low
-delete 1</code></pre>
+delete i/1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -792,7 +958,7 @@ Format: <code>undo</code></p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Undo supports the following commands that modify the engagement list: <code>add</code>, <code>edit</code>, <code>delete</code> and <code>clear</code>.
+Undo supports the following commands that modify the engagement list: <code>add</code>, <code>delete</code> and <code>clear</code>.
 </td>
 </tr>
 </table>
@@ -808,7 +974,7 @@ Undo supports the following commands that modify the engagement list: <code>add<
 Undoes the add command, i.e. the engagement with the description <code>CS2103T Discussion</code> will no longer be in the appointment manager.</p>
 </li>
 <li>
-<p><code>delete 1</code><br>
+<p><code>delete i/1</code><br>
 <code>undo</code><br>
 Undoes the delete command, i.e. restores the first engagement in the original displayed list.</p>
 </li>
@@ -820,13 +986,13 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="images/after-list.png" alt="after list" width="450">
 </div>
-<div class="title">Figure 14. Engagement list before the command <code>delete 1</code></div>
+<div class="title">Figure 16. Engagement list before the command <code>delete i/1</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/deletion-before-undo.png" alt="deletion before undo" width="450">
 </div>
-<div class="title">Figure 15. Engagement list after deletion</div>
+<div class="title">Figure 17. Engagement list after deletion</div>
 </div>
 </div>
 </div>
@@ -834,7 +1000,7 @@ Undoes the delete command, i.e. restores the first engagement in the original di
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 16. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 18. Engagement list after the command <code>undo</code></div>
 </div>
 </div>
 <div class="sect2">
@@ -849,9 +1015,9 @@ Format: <code>redo</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete 1</code><br>
-<code>undo</code> (reverts the <code>delete 1</code> command)<br>
-<code>redo</code> (reapplies the <code>delete 1</code> command)<br></p>
+<p><code>delete i/1</code><br>
+<code>undo</code> (reverts the <code>delete i/1</code> command)<br>
+<code>redo</code> (reapplies the <code>delete i/1</code> command)<br></p>
 </li>
 </ul>
 </div>
@@ -864,13 +1030,13 @@ Format: <code>redo</code></p>
 <div class="content">
 <img src="images/undo-result.png" alt="undo result" width="450">
 </div>
-<div class="title">Figure 17. Engagement list after the command <code>undo</code></div>
+<div class="title">Figure 19. Engagement list after the command <code>undo</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/redo-result.png" alt="redo result" width="450">
 </div>
-<div class="title">Figure 18. Engagement list after the command <code>redo</code></div>
+<div class="title">Figure 20. Engagement list after the command <code>redo</code></div>
 </div>
 </div>
 </div>
@@ -905,7 +1071,7 @@ The calendar&#8217;s display then switches to December 2019 and the engagement l
 <div class="content">
 <img src="images/calendar-open-display.png" alt="calendar open display" width="450">
 </div>
-<div class="title">Figure 19. Engagement list for 01/11/2019</div>
+<div class="title">Figure 21. Engagement list for 01/11/2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -941,7 +1107,7 @@ application is in another tab or if attempting to go above the maximum allowable
 <div class="content">
 <img src="images/calendar-next-month.png" alt="calendar next month" width="450">
 </div>
-<div class="title">Figure 20. Changing to the next month from November 2019</div>
+<div class="title">Figure 22. Changing to the next month from November 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -965,7 +1131,7 @@ application is in another tab or if attempting to go below the minimum allowable
 <div class="content">
 <img src="images/calendar-previous-month.png" alt="calendar previous month" width="450">
 </div>
-<div class="title">Figure 21. Changing to the previous month from November 2019</div>
+<div class="title">Figure 23. Changing to the previous month from November 2019</div>
 </div>
 <div class="paragraph">
 <p><br>
@@ -985,7 +1151,7 @@ to change the display to the previous month. The button will not work if the cal
 <div class="content">
 <img src="images/StartWindow.png" alt="StartWindow" width="600">
 </div>
-<div class="title">Figure 22. Starting window of the TypingGame Window</div>
+<div class="title">Figure 24. Starting window of the TypingGame Window</div>
 </div>
 <div class="paragraph">
 <p>Click the <kbd>Start</kbd> button to open the game in a new window.</p>
@@ -998,13 +1164,13 @@ the word disappears and the increase in points is reflected in the player inform
 <div class="content">
 <img src="images/GameWindow.png" alt="GameWindow" width="200">
 </div>
-<div class="title">Figure 23. Sample game play</div>
+<div class="title">Figure 25. Sample game play</div>
 </div>
 <div class="imageblock" style="float: "left">
 <div class="content">
 <img src="images/GameOver.png" alt="GameOver" width="200">
 </div>
-<div class="title">Figure 24. Sample game play when game is over</div>
+<div class="title">Figure 26. Sample game play when game is over</div>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -1064,11 +1230,11 @@ Document template can be customised based on the customers&#8217;s requirements,
 where the user can set who the user is going to send this document to inform an engagement.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>pdf i/LIST_INDEX t/RECEIVER f/FROM</code><br></p>
+<p>Format: <code>pdf i/LIST_INDEX f/FROM t/RECEIVER</code><br></p>
 </div>
 <div class="paragraph">
 <p>For example, if the user wants to create a document of an engagement, which has a list index of 1, which can by observed in <code>engagement</code> window.
-User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 t/Harry f/John</code> to generate the document.</p>
+User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 f/John t/Harry</code> to generate the document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1102,13 +1268,13 @@ User can alternatively click the green refresh button on top right of the docume
 <div class="content">
 <img src="images/pdf_function_btns.png" alt="pdf function btns" width="450">
 </div>
-<div class="title">Figure 25. refresh button and delete button.</div>
+<div class="title">Figure 27. refresh button and delete button.</div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/pdf_2.png" alt="pdf 2" width="450">
 </div>
-<div class="title">Figure 26. After clicking refresh button</div>
+<div class="title">Figure 28. After clicking refresh button</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1128,7 +1294,7 @@ Do not manually modify the document file name in the <code>reports/</code> direc
 <div class="content">
 <img src="images/pdf_sample.png" alt="pdf sample" width="400">
 </div>
-<div class="title">Figure 27. pdf document sample</div>
+<div class="title">Figure 29. pdf document sample</div>
 </div>
 <div class="paragraph left">
 <p>User can also double click the list item in the documents explorer tree view to open the document file on their local computer file system. Below is the sample of generated document from the system.</p>
@@ -1148,7 +1314,7 @@ Below is the screenshot after user clicks the delete button.</p>
 <div class="content">
 <img src="images/pdf_delete_before_after.png" alt="pdf delete before after" width="750">
 </div>
-<div class="title">Figure 28. pdf delete pop up message and after click</div>
+<div class="title">Figure 30. pdf delete pop up message and after click</div>
 </div>
 <div class="paragraph">
 <p>Now, once system successfully deleted the selected document, system will display the status message above the documents explorer. Below is the screenshot of the system status message after deletion.</p>
@@ -1176,7 +1342,7 @@ PDF generation and deletion operations cannot be undone via <code>undo</code> co
 <div class="content">
 <img src="images/pdf_error_2.png" alt="pdf error 2" width="600">
 </div>
-<div class="title">Figure 29. duplicate file exception message displayed in status text field.</div>
+<div class="title">Figure 31. duplicate file exception message displayed in status text field.</div>
 </div>
 </li>
 <li>
@@ -1188,7 +1354,7 @@ PDF generation and deletion operations cannot be undone via <code>undo</code> co
 <div class="content">
 <img src="images/pdf_error_1.png" alt="pdf error 1" width="600">
 </div>
-<div class="title">Figure 30. file deletion exception message displayed in the status text field.</div>
+<div class="title">Figure 32. file deletion exception message displayed in the status text field.</div>
 </div>
 </li>
 </ol>
@@ -1229,8 +1395,8 @@ Relevant data will be loaded from the external file when the application starts.
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/mm/YYYY/HHMM] l/LOCATION a/ATTENDEES d/DESCRIPTION p/PRIORITY</code><br>
-e.g. <code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 a/John | Elijah | Sam d/CS2103T Discussion p/HIGH</code></p>
+<p><strong>Add</strong> <code>add t/ENGAGEMENT_TYPE s/START_TIME[dd/mm/YYYY/HHMM] e/END_TIME[dd/mm/YYYY/HHMM] l/LOCATION d/DESCRIPTION a/ATTENDEES p/PRIORITY</code><br>
+e.g. <code>add t/Meeting s/18/10/2019/1500 e/18/10/2019/1800 l/COM-2-B1-03 d/CS2103T Discussion a/John | Elijah | Sam p/HIGH</code></p>
 </li>
 <li>
 <p><strong>Tab</strong>: <code>tab b/MENU_NAME</code></p>
@@ -1300,4 +1466,4 @@ e.g. <code>delete i/3</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:51:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:58:40 UTC</div></div></div></body></html>

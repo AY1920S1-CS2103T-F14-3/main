@@ -206,7 +206,7 @@ Users can switch between respective windows in order to make full use of the app
 </div>
 <div class="paragraph">
 <p>If the user wants to switch to different windows, simply enter the tab command
-with refer to the menu name listed on the left end of the application window.<br></p>
+with a reference to the menu name listed on the left end of the application window.<br></p>
 </div>
 <div class="paragraph">
 <p>For example, user enters <code>tab b/calendar</code>
@@ -229,6 +229,19 @@ Users who prefer using mouse over typing can alternatively click the green tabs 
 <img src="../images/tab_2.png" alt="tab 2" width="800">
 </div>
 </div>
+<div class="paragraph">
+<p>Users can start building a command in one tab, switch tabs midway and finish building the command in another tab.
+This can be achieved by the following sequence of inputs.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code>add
+t/meeting s/15/11/2019/1600 e/15/11/2019/1700
+tab
+b/calendar
+l/COM-1 d/Meeting a/Damith p/High</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="generating-a-pdf-file-of-engagement-code-pdf-code"><a class="link" href="#generating-a-pdf-file-of-engagement-code-pdf-code">Generating a PDF file of engagement : <code>pdf</code></a></h3>
@@ -240,11 +253,11 @@ Document template can be customised based on the customers&#8217;s requirements,
 where the user can set who the user is going to send this document to inform an engagement.<br></p>
 </div>
 <div class="paragraph">
-<p>Format: <code>pdf i/LIST_INDEX t/RECEIVER f/FROM</code><br></p>
+<p>Format: <code>pdf i/LIST_INDEX f/FROM t/RECEIVER</code><br></p>
 </div>
 <div class="paragraph">
 <p>For example, if the user wants to create a document of an engagement, which has a list index of 1, which can by observed in <code>engagement</code> window.
-User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 t/Harry f/John</code> to generate the document.</p>
+User sets the sender as <code>John</code>, which is the user&#8217;s name, and sets <code>receiver</code> as <code>Harry</code>. Hence, user enters <code>pdf i/1 f/John t/Harry</code> to generate the document.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -599,4 +612,4 @@ The window will include dynamic tree-view that is directly linked to the externa
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 06:51:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 07:58:40 UTC</div></div></div></body></html>
