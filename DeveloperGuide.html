@@ -568,11 +568,11 @@ Tab switch function is implemented in using both CLI and GUI approach; user can 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User has to use a specific <code>Command</code>; <code>TabCommand</code> in order to switch the window to another window.</p>
+<p>User is required to use a <code>Command</code>; <code>TabCommand</code> in order to switch the window to another window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Upon first startup of the system, by system default, system will display the <code>EngagementList</code> window.</p>
+<p>Upon first startup of the system, system will display the <code>EngagementList</code> window by default.</p>
 </li>
 </ul>
 </div>
@@ -584,7 +584,7 @@ Tab switch function is implemented in using both CLI and GUI approach; user can 
 </div>
 <div class="paragraph">
 <p>MainWindow will have an additional method <code>fetchTabInformation(tabName)</code>. After the parser executes the <code>TabCommand</code>, it will return a CommandResult with <code>Tab</code> property.<br>
-Next, system checks whether the input name matches with one of the tab names in the system. If there is a match, system will fetch the tab information and return the <code>Tab</code> object. If no match is found, system will return withn an empty tab with only name attached.</p>
+System will then check whether the input name matches with one of the tab names in the system. If there is a match, system will fetch the tab information and return the <code>Tab</code> object. If no match is found, system will return with an empty tab with only name attached.</p>
 </div>
 </div>
 </div>
@@ -684,19 +684,19 @@ The window will include dynamic tree-view that is directly linked to the externa
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Refresh Button</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refreshes the tree-view file directory.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To help user to refresh the directory when there is a system glitch or manually adds document (.pdf) in the <code>reports/</code> directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To help user refresh the directory when there is a system glitch or when document (.pdf) is manually added in the <code>reports/</code> directory.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Delete Button</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the selected document item in the tree-view file directory.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To assist users who prefer using mouse (GUI over CLI) deletes document easily.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To assist users who prefer using mouse instead of typing command in keyboard can delete documents easily.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>File_Explorer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Tree View</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1. Displays the list of document generated previously and stored under the directory <code>reports/</code>.</p>
-<p class="tableblock">2. Each list item is clickable with a MouseClick action of opening the document.</p></td>
+<p class="tableblock">2. Each list item is clickable with a mouse click action of opening the document.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To allow user to manage documents more time efficiently.</p></td>
 </tr>
 </tbody>
@@ -2218,4 +2218,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:49:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:03:01 UTC</div></div></div></body></html>

@@ -36,11 +36,10 @@ whose main tasks is to manage and arrange engagements.</p>
 <p>Typee divides engagements into 3 types; <em>Appointments</em>, <em>Meetings</em> and <em>Interviews</em>.</p>
 </li>
 <li>
-<p>Typee application interacts with the users by separating application features into different menu windows. Each menu name is displayed in
-the left-end of the application window, where user can switch to different windows anytime by using command.</p>
+<p>Typee application interacts with the users by separating application features into different menu windows. Each menu name is displayed in a green tab at the top of the display.</p>
 </li>
 <li>
-<p>Typee is a CLI (Command Line Interface) based application, with a mixture of simple GUI interacting features.</p>
+<p>Typee is a CLI (Command Line Interface) based application, with a mixture of minimal graphical interacting features.</p>
 </li>
 </ul>
 </div>
@@ -61,18 +60,18 @@ the left-end of the application window, where user can switch to different windo
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows the user to switch the main window to load different menu windows to utilise different features any time.</p>
+<p><strong>What it does</strong>: allows the user to switch the main window to load different menu windows so that users can utilise different features any time.</p>
 </li>
 <li>
-<p>Justification: In terms of user interface, by placing different feature interactions and forms in separate windows makes the application look more organised.</p>
+<p><strong>Justification</strong>: In terms of user interface, by placing different feature interactions and forms in separate windows makes the application look more organised.</p>
 </li>
 <li>
-<p>Highlights: New class <code>Tab</code> was implemented in the model and existing class <code>CommandResult</code> had to check if the command if the command type is <code>tab</code> command. This was a necessary implementation as
+<p><strong>Highlights</strong>: New class <code>Tab</code> was implemented in the model and existing class <code>CommandResult</code> had to check if the command if the command type is <code>tab</code> command. This was a necessary implementation as
 the <code>MainWindow</code>, which is the root UI component of the main UI had to load external fxml file to the empty component during the command process. Structure of the MainWindow had to be modified appropriately so that
 each separate fxml files are linked with different JAVAFX controller classes other than <code>MainWindow</code> controller class.</p>
 </li>
 <li>
-<p>Credits: SEDU team, where much of the architecture of the Main Window UI structure was referenced in order to customise our UI architecture to allow performing tab
+<p><strong>Credits</strong>: SEDU team, where much of the architecture of the Main Window UI structure was referenced in order to customise our UI architecture to allow performing tab
 switching command.</p>
 </li>
 </ul>
@@ -83,24 +82,23 @@ switching command.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>What it does: allows users to generate a report into pdf format document, where user can simply select the engagement that the user wants to generate into
+<p><strong>What it does</strong>: allows users to generate a report into pdf format document, where user can simply select the engagement that the user wants to generate into
 document and attach it to email to the corresponding receiver.</p>
 </li>
 <li>
-<p>Justification: Secretaries and receptionists are not responsible only in task management. They have other tasks that consume alot of their time during office work.
-In order to improve their task performance more time efficiently, the feature allows users to save time instead of manually typing the document while referring to
-the engagement information one by one. With a simple 1 line command, typee generates a document, so that the user only need to attach the document their email.
+<p><strong>Justification</strong>: Secretaries and receptionists are not responsible only in task management. They have other tasks that consume many of their time during office work. In order to improve their task performance time efficiently, the feature allows users to save time instead of manually typing the document while referring to
+the engagement information one by one. With a simple 1 line command, Typee generates a document, so that users can skip the document preparation process and instantly attach the document to the emails that they are sending to.
 Document template is fully customisable, hence it makes the application flexible so that any corporations can use our application to fit their company document conventions formats.</p>
 </li>
 <li>
-<p>Credits:</p>
+<p><strong>Credits</strong>:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://https://commons.apache.org/proper/commons-io/">Commons-IO</a> : file extension validation method is used for</p>
+<p><a href="https://https://commons.apache.org/proper/commons-io/">Commons-IO</a> : file extension validation method is used for scanning document files in external directory for pdf generation feature.</p>
 </li>
 <li>
-<p><a href="https://itextpdf.com/en">iTextPdf</a></p>
+<p><a href="https://itextpdf.com/en">iTextPdf</a> : An API that allows writing document contents in a pdf format.</p>
 </li>
 </ul>
 </div>
@@ -112,15 +110,18 @@ Document template is fully customisable, hence it makes the application flexible
 </div>
 </li>
 <li>
-<p><strong>Minor enhancement</strong>: Updated the existing AB3 CSS dark theme file to customise our Typee UI color schemes; TreeListView, Functional button skins (Delete button, Refresh button, Next/Previous month button) (Pull requests <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pull/223">#223</a>, <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pull/65">#65</a>)</p>
+<p><strong>Minor enhancement</strong>: Customised the existing AB3 Dark Theme with additional styling for other components; TreeListView, Functional button skins (Delete button, Refresh button, Next/Previous month button) (Pull requests <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pull/223">#223</a>, <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pull/65">#65</a>)</p>
 </li>
 <li>
-<p><strong>Code contributed</strong>: [<a href="https://github.com/nordic96/main">Functional code</a>]</p>
+<p><strong>Code contributed</strong>: [<a href="https://github.com/nordic96/main">Functional Code</a>]</p>
 </li>
 <li>
 <p><strong>Other contributions</strong>:</p>
 <div class="ulist">
 <ul>
+<li>
+<p>Documentation: updated the Ui.png with other relevant screenshot images for updating User Guide and Developer&#8217;s Guide.</p>
+</li>
 <li>
 <p>Enhancements to existing features:</p>
 <div class="ulist">
@@ -170,7 +171,7 @@ Format: <code>tab b/MENU_NAME</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Typee has 4 major features/menus. They comprise of:</p>
+<p>Typee has four major features/menus. They comprise of:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -183,13 +184,15 @@ Format: <code>tab b/MENU_NAME</code></p>
 <p>Calendar View</p>
 </li>
 <li>
-<p>Report Generator
-Users can switch between respective windows in order to make full use of the application.</p>
+<p>Report Generator</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Users can switch between respective windows in order to make full use of the application.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -198,15 +201,13 @@ Users can switch between respective windows in order to make full use of the app
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-<code>tab b/game</code> is used instead of <code>tab b/typinggame</code> to simplify typing.<br>
 <code>Engagement</code> window is set to default window upon starting the application.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>If the user wants to switch to different windows, simply enter the tab command
-with a reference to the menu name listed on the left end of the application window.<br></p>
+<p>If user wants to switch to different windows, simply enter the tab command. Tab names can be seen on the top of the application display in green boxes.<br></p>
 </div>
 <div class="paragraph">
 <p>For example, user enters <code>tab b/calendar</code>
@@ -226,20 +227,7 @@ Users who prefer using mouse over typing can alternatively click the green tabs 
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="../images/tab_2.png" alt="tab 2" width="800">
-</div>
-</div>
-<div class="paragraph">
-<p>Users can start building a command in one tab, switch tabs midway and finish building the command in another tab.
-This can be achieved by the following sequence of inputs.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="CodeRay highlight"><code>add
-t/meeting s/15/11/2019/1600 e/15/11/2019/1700
-tab
-b/calendar
-l/COM-1 d/Meeting a/Damith p/High</code></pre>
+<img src="../images/tab_2.png" alt="tab 2" width="600">
 </div>
 </div>
 </div>
@@ -333,7 +321,7 @@ button to delete the selected document list item. Once system displays the popup
 <p>Delete function will only available when user has pre-selected the document list item and the selected item must be a .pdf form, not directory.
 Below is the screenshot after user clicks the delete button.</p>
 </div>
-<div class="imageblock">
+<div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/pdf_delete_before_after.png" alt="pdf delete before after" width="750">
 </div>
@@ -416,11 +404,11 @@ Tab switch function is implemented in using both CLI and GUI approach; user can 
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User has to use a specific <code>Command</code>; <code>TabCommand</code> in order to switch the window to another window.</p>
+<p>User is required to use a <code>Command</code>; <code>TabCommand</code> in order to switch the window to another window.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Upon first startup of the system, by system default, system will display the <code>EngagementList</code> window.</p>
+<p>Upon first startup of the system, system will display the <code>EngagementList</code> window by default.</p>
 </li>
 </ul>
 </div>
@@ -432,7 +420,7 @@ Tab switch function is implemented in using both CLI and GUI approach; user can 
 </div>
 <div class="paragraph">
 <p>MainWindow will have an additional method <code>fetchTabInformation(tabName)</code>. After the parser executes the <code>TabCommand</code>, it will return a CommandResult with <code>Tab</code> property.<br>
-Next, system checks whether the input name matches with one of the tab names in the system. If there is a match, system will fetch the tab information and return the <code>Tab</code> object. If no match is found, system will return withn an empty tab with only name attached.</p>
+System will then check whether the input name matches with one of the tab names in the system. If there is a match, system will fetch the tab information and return the <code>Tab</code> object. If no match is found, system will return with an empty tab with only name attached.</p>
 </div>
 </div>
 </div>
@@ -532,19 +520,19 @@ The window will include dynamic tree-view that is directly linked to the externa
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Refresh Button</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refreshes the tree-view file directory.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To help user to refresh the directory when there is a system glitch or manually adds document (.pdf) in the <code>reports/</code> directory.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To help user refresh the directory when there is a system glitch or when document (.pdf) is manually added in the <code>reports/</code> directory.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>Delete Button</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Button</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Deletes the selected document item in the tree-view file directory.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">To assist users who prefer using mouse (GUI over CLI) deletes document easily.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To assist users who prefer using mouse instead of typing command in keyboard can delete documents easily.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>File_Explorer</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Tree View</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">1. Displays the list of document generated previously and stored under the directory <code>reports/</code>.</p>
-<p class="tableblock">2. Each list item is clickable with a MouseClick action of opening the document.</p></td>
+<p class="tableblock">2. Each list item is clickable with a mouse click action of opening the document.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">To allow user to manage documents more time efficiently.</p></td>
 </tr>
 </tbody>
@@ -612,4 +600,4 @@ The window will include dynamic tree-view that is directly linked to the externa
 <hr>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 08:49:20 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 09:03:01 UTC</div></div></div></body></html>
