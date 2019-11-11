@@ -28,7 +28,7 @@
 <li><a href="#logging">3.4. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
 <li><a href="#calendar-window">3.6. Calendar Window</a></li>
-<li><a href="#game-window">3.7. Game Window</a></li>
+<li><a href="#game-feature">3.7. Game Feature</a></li>
 <li><a href="#sort-feature">3.8. Sort feature</a></li>
 </ul>
 </li>
@@ -109,7 +109,7 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The rest of the App consists of four components.</p>
+<p>The rest of the App consists of four components</p>
 </div>
 <div class="ulist">
 <ul>
@@ -125,10 +125,13 @@ The following class plays an important role at the architecture level:</p>
 <li>
 <p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
 </li>
+<li>
+<p><a href="#Design-Game"><strong><code>Game</code></strong></a>: Holds game data.</p>
+</li>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each of the four components</p>
+<p>The first four components</p>
 </div>
 <div class="ulist">
 <ul>
@@ -994,12 +997,39 @@ The alternative would be to add fixed constraints to the size of each cell but t
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-window"><a class="link" href="#game-window">3.7. Game Window</a></h3>
+<h3 id="game-feature"><a class="link" href="#game-feature">3.7. Game Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.7.1. Implementation</a></h4>
+<div class="paragraph">
+<p>The game feature is implemented using the singleton pattern using the singleton class <code>GameWindow</code> which is created
+by button-click in <code>StartWindow</code>. This means that there can only be one <code>gameInstance</code> at any given time with the exception
+of the game being over. <code>GameWindow</code> has three main components <code>PlayerInformation</code>, <code>GameBody</code> and <code>Player</code>.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/GameWindowClassDiagram.png" alt="GameWindowClassDiagram">
 </div>
 <div class="title">Figure 18. Structure of the Game Window</div>
+</div>
+<div class="paragraph">
+<p>The component <code>GameBody</code> makes use of <code>javafx.animation.AnimationTimer</code> API to continuously loop <code>MovingWords</code> objects moving from top
+to bottom of the window using <code>GameBody#loopWords()</code>. <code>MovingWords</code> are created using
+<code>HighlighterUtil#convertToTextFlowUsing(String word)</code>
+, which appears as a <code>TextFlow</code> object of <code>javafx.scene.text</code> API.</p>
+</div>
+<div class="paragraph">
+<p>Player input is represented as  a <code>javafx.beans.property.StringProperty</code> in <code>Player</code>.
+Based on player input, <code>MovingWords</code> are updated using
+<code>HighlighterUtil#convertToTextFlowUsing(String playerInput, String word)</code>
+, which appears as a highlighted <code>TextFlow</code> object. In order to update the <code>MovingWords</code> object, the API
+<code>javafx.animation.AnimationTimer</code> is used by calling <code>MovingWords#continuouslyUpdate()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The component <code>PlayerInformation</code> is bound to <code>Player</code> using <code>javafx.beans.property</code> API and is also updated when
+<code>MovingWords#continuouslyUpdate()</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>The table below summarises the various purposes of the 3 main Game Window UI components.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <caption class="title">Table 3. Game Window UI Components</caption>
@@ -1039,10 +1069,63 @@ The alternative would be to add fixed constraints to the size of each cell but t
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-singleton-pattern-design-of-game-window"><a class="link" href="#aspect-singleton-pattern-design-of-game-window">Aspect: Singleton pattern design of Game Window</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Game Window with Singleton pattern design</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent users from instantiating multiple Game Windows which may cause performance issues or even cause the application
+to crash.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reduced testability as it is difficult to replace Singleton objects with stubs, and increased coupling across code base.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Game Window without Singleton pattern design</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Increased testability and reduced coupling.</p>
+</li>
+<li>
+<p>Cons: There could be the risk of users being able to instantiate hundreds or thousands of GameWindows which would cause
+performance issues or application crash issues.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="sort-feature"><a class="link" href="#sort-feature">3.8. Sort feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.8.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.8.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The sort mechanism is facilitated by <code>EngagementComparator</code>.
 The <code>EngagementComparator</code> is an enum class that implements Java Comparator&lt;Engagement&gt; and specifies the comparing logic of 8 different orders, namely <code>START_TIME</code>, <code>START_TIME_REVERSE</code>, <code>END_TIME</code>, <code>END_TIME_REVERSE</code>, <code>ALPHABETICAL</code>, <code>ALPHABETICAL_REVERSE</code>, <code>PRIORITY</code>, and <code>PRIORITY_REVERSE</code>.
@@ -1156,7 +1239,7 @@ If the <code>currentComparator</code> assumes the initial value <code>null</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.8.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
 <div class="ulist">
@@ -2127,4 +2210,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:46:38 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:10:36 UTC</div></div></div></body></html>

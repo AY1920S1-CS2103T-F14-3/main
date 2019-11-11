@@ -89,9 +89,6 @@ appointment management system with calendar view, pdf report generation, as well
 <p>Summary of contributions</p>
 </li>
 <li>
-<p>Major and minor enhancements</p>
-</li>
-<li>
 <p>Contributions to User Guide and Developer Guide</p>
 </li>
 </ol>
@@ -108,7 +105,7 @@ appointment management system with calendar view, pdf report generation, as well
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><span class="blue">This section will give you a brief overview of my contributions to the project.</span><br></p>
-<p class="tableblock">This section will be split into <strong>Major Enhancement</strong>, <strong>Other Contributions</strong> and <strong>Code contributed</strong> sub-sections.</p></td>
+<p class="tableblock">This section will be split into <strong>Major Enhancement</strong>, <strong>Major Enhancement</strong>, <strong>Other Contributions</strong> and <strong>Code contributed</strong> sub-sections.</p></td>
 </tr>
 </tbody>
 </table>
@@ -128,7 +125,7 @@ and <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/blob/master/docs/Use
 to understand more about <strong><em>Typee</em></strong> and its list of features in order to have a better idea of my contributions to the project.</p>
 </li>
 <li>
-<p>To try out <strong><em>Typee</em></strong> , go to the User Guide and find the <span class="navy"><strong>Quick Start</strong></span> section for more information.</p>
+<p>To try out <strong><em>Typee</em></strong>, go to the User Guide and find the <span class="navy"><strong>Quick Start</strong></span> section for more information.</p>
 </li>
 </ul>
 </div>
@@ -137,35 +134,54 @@ to understand more about <strong><em>Typee</em></strong> and its list of feature
 </table>
 </div>
 <div class="sect2">
-<h3 id="features-contributed-to-project"><a class="link" href="#features-contributed-to-project">Features Contributed to Project</a></h3>
-<div class="sect3">
-<h4 id="major-enhancement-added-code-tab-game-code"><a class="link" href="#major-enhancement-added-code-tab-game-code">Major enhancement: added <code>tab game</code></a></h4>
+<h3 id="major-enhancement-added-game-feature"><a class="link" href="#major-enhancement-added-game-feature">Major enhancement: added Game feature</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><span class="red"><strong><em>What</em></strong> -</span> The game feature is a simple typing game where users score points whenever a word, such as
-<code>fire</code>, <code>something</code>, is correctly typed.</p>
+<p><span class="red"><strong><em>What it does:</em></strong> -</span> The game feature is a simple typing game where users score points whenever a word, such as
+<code>grass</code>, is correctly typed.</p>
 </li>
 <li>
-<p><span class="red"><strong><em>Why</em></strong> -</span> The game feature is a utility feature that allows the user to practice and exercise their typing skill,
+<p><span class="red"><strong><em>Justification:</em></strong> -</span> The game feature is a utility feature that allows the user to practice and exercise their typing skill,
 which is an essential skill for secretaries and receptionists. The game-like environment uses a points system and has the
-advantage of keeping users incentivized, entertained and motivated to improve their skills.</p>
+advantage of keeping users incentivized and motivated to improve their skills.</p>
+</li>
+<li>
+<p><span class="red"><strong><em>Highlights:</em></strong> -</span></p>
+<div class="ulist">
+<ul>
+<li>
+<p>In-depth analysis of design alternatives was necessary to prevent users from creating multiple game instances.
+The implementation was also challenging because there were various JavaFX API like <code>javafx.animation</code> and <code>javafx.beans</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="minor-enhancement-added-code-find-code-command"><a class="link" href="#minor-enhancement-added-code-find-code-command">Minor enhancement: added <code>find</code> command</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><span class="red"><strong><em>What it does:</em></strong> -</span> Case-insensitive search for engagements based on the given keyword.</p>
+</li>
+<li>
+<p><span class="red"><strong><em>Justification:</em></strong> -</span> Secretaries and receptionists may want to filter or search their list of engagements depending
+on certain criteria. This allows them to better manage and schedule their appointments.</p>
 </li>
 <li>
 <p><span class="red"><strong><em>Highlights</em></strong> -</span></p>
 <div class="ulist">
 <ul>
 <li>
-<p>This enhancement can be triggered using the <code>Start</code> button following <code>tab game</code> command.
-This enhancement works with existing as well as future commands.
-In-depth analysis of design alternatives was necessary to&#8230;&#8203;
-The implementation was also challenging because…</p>
+<p>This enhancement complements existing as well as future commands.</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -181,7 +197,7 @@ The implementation was also challenging because…</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The following <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+author%3Ajun-ha0+is%3Aclosed+">issues link</a>
+<p>The following <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/issues?utf8=%E2%9C%93&amp;q=is%3Aissue+assignee%3Ajun-ha0+is%3Aclosed+">issues link</a>
 displays the issue trackers I managed.</p>
 </li>
 </ul>
@@ -211,8 +227,9 @@ displays the issue trackers I managed.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The following <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Ajun-ha0+is%3Aclosed+">PR link</a>
-displays the Pull Requests I reviewed.</p>
+<p>The following links <a href="https://github.com/AY1920S1-CS2103T-F14-3/main/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+reviewed-by%3Ajun-ha0+is%3Aclosed+">Typee PR</a>
+<a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3/pull/11">MoneyGoWhere PR</a>
+display the Pull Requests I reviewed.</p>
 </li>
 </ul>
 </div>
@@ -231,9 +248,280 @@ displays my code contribution.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my ability to write documentation targeting end-users.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="typing-game-code-tab-b-game-code"><a class="link" href="#typing-game-code-tab-b-game-code">Typing game : <code>tab b/game</code></a></h3>
 <div class="paragraph">
-<p>{ to be continued }</p>
+<p>Changes the current window to the TypingGame window which has a <kbd>Start</kbd> button.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/StartWindow.png" alt="StartWindow" width="600">
+</div>
+<div class="title">Figure 1. Starting window of the TypingGame Window</div>
+</div>
+<div class="paragraph">
+<p>Click the <kbd>Start</kbd> button to open the game in a new window.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GameWindow.png" alt="GameWindow" width="600">
+</div>
+<div class="title">Figure 2. Sample game play</div>
+</div>
+<div class="paragraph">
+<p>There are moving words that you can type in order to score points. Once you correctly type the specified word,
+the word disappears and the increase in points is reflected in the player information panel in the game window.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Press <kbd>SPACEBAR</kbd> or <kbd>Enter</kbd> to clear the text area which is located at the bottom of the screen.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>When you fail to type the word before the moving word reaches the bottom of screen, the decrease in health points
+is reflected in the player information panel in the game window.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+As the game progresses, the words move faster, hence increasing difficulty such that you can improve your typing speed.
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-warning" title="Warning"></i>
+</td>
+<td class="content">
+Closing the game midway would result in loss of in-game progress.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>After the health points reaches zero, <code>GAME OVER</code> is displayed as shown below.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GameOver.png" alt="GameOver" width="600">
+</div>
+<div class="title">Figure 3. Sample game play when game is over</div>
+</div>
+<div class="paragraph">
+<p>Once the game is over, you can manually close the application by clicking the <kbd>x</kbd> on the top right hand corner of the window.
+If you want to play the game again, click the <kbd>Start</kbd> button shown in the Start window.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:46:38 UTC</div></div></div></body></html>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase my ability to write technical documentation and the technical depth of my contributions to the project.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="sect2">
+<h3 id="game-feature"><a class="link" href="#game-feature">Game Feature</a></h3>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>The game feature is implemented using the singleton pattern using the singleton class <code>GameWindow</code> which is created
+by button-click in <code>StartWindow</code>. This means that there can only be one <code>gameInstance</code> at any given time with the exception
+of the game being over. <code>GameWindow</code> has three main components <code>PlayerInformation</code>, <code>GameBody</code> and <code>Player</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GameWindowClassDiagram.png" alt="GameWindowClassDiagram">
+</div>
+<div class="title">Figure 4. Structure of the Game Window</div>
+</div>
+<div class="paragraph">
+<p>The component <code>GameBody</code> makes use of <code>javafx.animation.AnimationTimer</code> API to continuously loop <code>MovingWords</code> objects moving from top
+to bottom of the window using <code>GameBody#loopWords()</code>. <code>MovingWords</code> are created using
+<code>HighlighterUtil#convertToTextFlowUsing(String word)</code>
+, which appears as a <code>TextFlow</code> object of <code>javafx.scene.text</code> API.</p>
+</div>
+<div class="paragraph">
+<p>Player input is represented as  a <code>javafx.beans.property.StringProperty</code> in <code>Player</code>.
+Based on player input, <code>MovingWords</code> are updated using
+<code>HighlighterUtil#convertToTextFlowUsing(String playerInput, String word)</code>
+, which appears as a highlighted <code>TextFlow</code> object. In order to update the <code>MovingWords</code> object, the API
+<code>javafx.animation.AnimationTimer</code> is used by calling <code>MovingWords#continuouslyUpdate()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The component <code>PlayerInformation</code> is bound to <code>Player</code> using <code>javafx.beans.property</code> API and is also updated when
+<code>MovingWords#continuouslyUpdate()</code> is called.</p>
+</div>
+<div class="paragraph">
+<p>The table below summarises the various purposes of the 3 main Game Window UI components.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<caption class="title">Table 1. Game Window UI Components</caption>
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top"></th>
+<th class="tableblock halign-left valign-top">UI Component Type</th>
+<th class="tableblock halign-left valign-top">Feature</th>
+<th class="tableblock halign-left valign-top">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>PlayerInformation</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Stack Pane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the user&#8217;s score and health points.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To inform user about the in-game progress.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GameBody</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">AnchorPane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the animation of the game.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To allow the user to view the animation of the moving words in a continuous manner.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MovingWords</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scrollable Stack Pane</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Displays the individual word.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">To allow user to know the next word to type.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-singleton-pattern-design-of-game-window"><a class="link" href="#aspect-singleton-pattern-design-of-game-window">Aspect: Singleton pattern design of Game Window</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Game Window with Singleton pattern design</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:<br></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Prevent users from instantiating multiple Game Windows which may cause performance issues or even cause the application
+to crash.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Reduced testability as it is difficult to replace Singleton objects with stubs, and increased coupling across code base.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Game Window without Singleton pattern design</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Increased testability and reduced coupling.</p>
+</li>
+<li>
+<p>Cons: There could be the risk of users being able to instantiate hundreds or thousands of GameWindows which would cause
+performance issues or application crash issues.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-uc14-typing-game" class="discrete">Use case: (UC14) Typing game</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to start the typing game</p>
+</li>
+<li>
+<p>System shows typing game window which displays the specific word(s) to type.</p>
+</li>
+<li>
+<p>User plays the game by typing the word(s).</p>
+</li>
+<li>
+<p>Typing game updates the User&#8217;s score and health points accordingly.
+Steps 2-4 are repeated for as many rounds as required until User runs out of health points.</p>
+</li>
+<li>
+<p>Typing game shows the final score of the User when the game ends.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. User exits game</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:10:36 UTC</div></div></div></body></html>
