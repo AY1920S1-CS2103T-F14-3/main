@@ -25,11 +25,11 @@
 <li><a href="#undo-redo-feature">3.1. Undo/Redo feature</a></li>
 <li><a href="#tab-switch-feature">3.2. Tab Switch Feature</a></li>
 <li><a href="#engagement-report-generation">3.3. Engagement Report Generation</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
-<li><a href="#calendar-window">3.6. Calendar Window</a></li>
-<li><a href="#game-feature">3.7. Game Feature</a></li>
-<li><a href="#sort-feature">3.8. Sort feature</a></li>
+<li><a href="#calendar-window">3.4. Calendar Window</a></li>
+<li><a href="#game-feature">3.5. Game Feature</a></li>
+<li><a href="#sort-feature">3.6. Sort feature</a></li>
+<li><a href="#logging">3.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -705,58 +705,14 @@ The window will include dynamic tree-view that is directly linked to the externa
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
-<div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Logging Levels</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
-<div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="calendar-window"><a class="link" href="#calendar-window">3.6. Calendar Window</a></h3>
+<h3 id="calendar-window"><a class="link" href="#calendar-window">3.4. Calendar Window</a></h3>
 <div class="paragraph">
 <p>The <code>CalendarWindow</code> provides a visual representation of stored engagements over a monthly period.
 Users can choose to change the month being displayed and also open scrolling text windows which
 show more detailed descriptions of the stored engagements for a particular day.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-structure-3"><a class="link" href="#implementation-structure-3">3.6.1. Implementation Structure</a></h4>
+<h4 id="implementation-structure-3"><a class="link" href="#implementation-structure-3">3.4.1. Implementation Structure</a></h4>
 <div class="imageblock">
 <div class="content">
 <img src="images/CalendarWindowClassDiagram.png" alt="CalendarWindowClassDiagram">
@@ -783,7 +739,7 @@ calendar window tab.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="ui-design-2"><a class="link" href="#ui-design-2">3.6.2. UI Design</a></h4>
+<h4 id="ui-design-2"><a class="link" href="#ui-design-2">3.4.2. UI Design</a></h4>
 <div class="paragraph">
 <p>The <code>CalendarWindow</code> class was designed with the observer pattern in mind. The calendar&#8217;s display and any open engagements
 list windows are automatically updated as engagements are added to or deleted from the application. <code>CalendarDateCell</code> and
@@ -853,7 +809,7 @@ The following table shows all UI components which are used and their respective 
 </table>
 </div>
 <div class="sect3">
-<h4 id="command-execution-workflows"><a class="link" href="#command-execution-workflows">3.6.3. Command Execution Workflows</a></h4>
+<h4 id="command-execution-workflows"><a class="link" href="#command-execution-workflows">3.4.3. Command Execution Workflows</a></h4>
 <div class="paragraph">
 <p>The following are the four commands which interact with <code>CalendarWindow</code>. They are accompanied by their respective activity diagrams
 which are used to model their workflows:</p>
@@ -924,7 +880,7 @@ which are used to model their workflows:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.6.4. Design Considerations</a></h4>
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.4.4. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-deciding-whether-to-let-engagements-list-windows-from-other-months-remain-open-when-changing-the-displayed-month"><a class="link" href="#aspect-deciding-whether-to-let-engagements-list-windows-from-other-months-remain-open-when-changing-the-displayed-month">Aspect: Deciding whether to let engagements list windows from other months remain open when changing the displayed month</a></h5>
 <div class="ulist">
@@ -997,9 +953,9 @@ The alternative would be to add fixed constraints to the size of each cell but t
 </div>
 </div>
 <div class="sect2">
-<h3 id="game-feature"><a class="link" href="#game-feature">3.7. Game Feature</a></h3>
+<h3 id="game-feature"><a class="link" href="#game-feature">3.5. Game Feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">3.7.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">3.5.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The game feature is implemented using the singleton pattern using the singleton class <code>GameWindow</code> which is created
 by button-click in <code>StartWindow</code>. This means that there can only be one <code>gameInstance</code> at any given time with the exception
@@ -1070,7 +1026,7 @@ Based on player input, <code>MovingWords</code> are updated using
 </table>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.7.2. Design Considerations</a></h4>
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">3.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-singleton-pattern-design-of-game-window"><a class="link" href="#aspect-singleton-pattern-design-of-game-window">Aspect: Singleton pattern design of Game Window</a></h5>
 <div class="ulist">
@@ -1123,9 +1079,9 @@ performance issues or application crash issues.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sort-feature"><a class="link" href="#sort-feature">3.8. Sort feature</a></h3>
+<h3 id="sort-feature"><a class="link" href="#sort-feature">3.6. Sort feature</a></h3>
 <div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">3.8.1. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">3.6.1. Implementation</a></h4>
 <div class="paragraph">
 <p>The sort mechanism is facilitated by <code>EngagementComparator</code>.
 The <code>EngagementComparator</code> is an enum class that implements Java Comparator&lt;Engagement&gt; and specifies the comparing logic of 8 different orders, namely <code>START_TIME</code>, <code>START_TIME_REVERSE</code>, <code>END_TIME</code>, <code>END_TIME_REVERSE</code>, <code>ALPHABETICAL</code>, <code>ALPHABETICAL_REVERSE</code>, <code>PRIORITY</code>, and <code>PRIORITY_REVERSE</code>.
@@ -1239,7 +1195,7 @@ If the <code>currentComparator</code> assumes the initial value <code>null</code
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.8.2. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-how-sort-executes"><a class="link" href="#aspect-how-sort-executes">Aspect: How sort executes</a></h5>
 <div class="ulist">
@@ -1273,6 +1229,50 @@ If the <code>currentComparator</code> assumes the initial value <code>null</code
 </ul>
 </div>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -2210,4 +2210,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:16:35 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 03:49:49 UTC</div></div></div></body></html>
