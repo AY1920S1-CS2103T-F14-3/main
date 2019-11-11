@@ -769,7 +769,7 @@ After sorting, commands that require INDEX as an input field (e.g. <code>delete<
 Searches can be interactive or non-interactive.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>find TAG/KEYWORD</code></p>
+<p>Format: <code>find l/LOCATION d/DESCRIPTION a/ATTENDEES p/PRIORITY</code></p>
 </div>
 <div class="paragraph">
 <p>Valid tags: <code>d/</code>, <code>l/</code>, <code>a/</code>, <code>p/</code><br></p>
@@ -812,7 +812,7 @@ l/Com Basement</code></pre>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Description</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>d/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Engagements containing description keyword will be returned. e.g. <code>find d/Singapore based</code> will return
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engagements containing description keyword will be shown. e.g. <code>find d/Singapore based</code> will show
 all engagements containing the description <code>Singapore based</code>.<br>
 e.g. <code>singapore based internship appointment</code>, <code>Singapore based project meeting</code></p></td>
 </tr>
@@ -824,7 +824,7 @@ e.g. <code>singapore based internship appointment</code>, <code>Singapore based 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Attendees</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>a/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Engagements containing attendee keyword will be returned. e.g. <code>find a/Hans</code> will return
+<td class="tableblock halign-left valign-top"><p class="tableblock">Engagements containing attendee keyword will be shown. e.g. <code>find a/Hans</code> will show
 all engagements containing the attendee <code>Hans</code>.<br>
 e.g. <code>Hansen Gruber</code>, <code>hans christian</code></p></td>
 </tr>
@@ -846,7 +846,7 @@ e.g. <code>Hansen Gruber</code>, <code>hans christian</code></p></td>
 <p>At least one search parameter should be specified.</p>
 </li>
 <li>
-<p>The order of the prefixes does not matter. e.g. <code>find a/Hans Bo p/high</code> is equivalent to <code>find p/high a/Hans</code></p>
+<p>The order of the prefixes does not matter. e.g. <code>find a/Hans p/high</code> is equivalent to <code>find p/high a/Hans</code></p>
 </li>
 <li>
 <p>Similarly, the two sequences below are similar.</p>
@@ -1489,8 +1489,14 @@ e.g. <code>calendar c/closedisplay d/11/11/2019</code></p>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete i/INDEX</code><br>
-e.g. <code>delete i/3</code></p>
+<p><strong>Delete</strong> : <code>delete i/INDEX</code><br></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete i/3</code></p>
+</li>
+</ul>
+</div>
 </li>
 <li>
 <p><strong>PDF</strong> : <code>pdf i/INDEX to/RECEIVER from/SENDER</code></p>
@@ -1508,9 +1514,12 @@ e.g. <code>delete i/3</code></p>
 <p><strong>List</strong> : <code>list</code></p>
 </li>
 <li>
+<p><strong>Find</strong> <code>find l/LOCATION d/DESCRIPTION a/ATTENDEES p/PRIORITY</code></p>
+</li>
+<li>
 <p><strong>Help</strong> : <code>help</code></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 14:47:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 15:00:44 UTC</div></div></div></body></html>
