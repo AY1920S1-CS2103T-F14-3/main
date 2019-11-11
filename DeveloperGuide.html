@@ -452,7 +452,7 @@ If the <code>versionPointer</code> is at index <code>historyList.size() - 1</cod
 </table>
 </div>
 <div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>sort start ascending</code>. Commands that do not modify the engagement list, such as <code>sort</code>, will usually not call <code>Model#saveEngagementList()</code>, <code>Model#undoEngagementList()</code> or <code>Model#redoEngagementList()</code>. Thus, the <code>historyList</code> remains unchanged.</p>
+<p>Step 5. The user then decides to execute the command <code>sort p/start o/ascending</code>. Commands that do not modify the engagement list, such as <code>sort</code>, will usually not call <code>Model#saveEngagementList()</code>, <code>Model#undoEngagementList()</code> or <code>Model#redoEngagementList()</code>. Thus, the <code>historyList</code> remains unchanged.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
@@ -1079,12 +1079,24 @@ Each positive sequence comparator compares two <code>Engagements</code> with the
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>sort priority ascending</code> command to sort the engagement list in ascending order of priority. The <code>sort</code> command calls <code>Model#setComparator()</code>, causing the <code>currentComparator</code> in ModelManager to assume the value <code>EngagementComparator#PRIORITY</code>. The command then calls <code>Model#updateSortedEngagementList</code> to execute the sorting.</p>
+<p>Step 2. The user executes <code>sort p/priority o/ascending</code> command to sort the engagement list in ascending order of priority. The <code>sort</code> command calls <code>Model#setComparator()</code>, causing the <code>currentComparator</code> in ModelManager to assume the value <code>EngagementComparator#PRIORITY</code>. The command then calls <code>Model#updateSortedEngagementList</code> to execute the sorting.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="images/SortListState1.png" alt="SortListState1" width="450">
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The parsing of <code>sort</code> follows the interactive parsing structure <strong><em>Typee</em></strong> adopts, where various stages are created while parsing. See Sequence Diagram below.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the sort operation works:</p>
@@ -2115,4 +2127,4 @@ Expected: The most recent window size and location is retained.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:19:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:46:38 UTC</div></div></div></body></html>

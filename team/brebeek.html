@@ -195,7 +195,7 @@ careful tweaks to existing structures.</p>
 <p>Updated part of the find feature (Pull request <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#111</a>)</p>
 </li>
 <li>
-<p>Wrote additional tests for existing features to increase coverage from 50% to 65% (Pull requests <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#36</a>, <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#38</a>)</p>
+<p>Wrote additional tests for existing features to increase coverage from 50% to 65% (e.g. Pull requests <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#220</a>, <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#212</a>)</p>
 </li>
 </ul>
 </div>
@@ -205,7 +205,7 @@ careful tweaks to existing structures.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#14</a></p>
+<p>Did cosmetic tweaks to existing contents of the User Guide: <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#112</a></p>
 </li>
 </ul>
 </div>
@@ -215,7 +215,7 @@ careful tweaks to existing structures.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#69</a>, <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#32</a></p>
+<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com/AY1920S1-CS2103T-F14-3/main">#69</a></p>
 </li>
 <li>
 <p>Contributed to forum discussions (examples:  <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">#11</a>, <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">#1</a>, <a href="https://github.com/nus-cs2103-AY1920S1/addressbook-level3">#13</a>)</p>
@@ -264,7 +264,7 @@ careful tweaks to existing structures.</p>
 <h3 id="sorting-all-appointments-code-sort-code"><a class="link" href="#sorting-all-appointments-code-sort-code">Sorting all appointments : <code>sort</code></a></h3>
 <div class="paragraph">
 <p>Sorts the list of all appointments in the appointment list by the order specified by user.<br>
-Format: <code>sort p/ PROPERTY o/ORDER</code></p>
+Format: <code>sort p/PROPERTY o/ORDER</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -346,12 +346,16 @@ Sorts the list displayed in ascending order of start time.</p>
 </td>
 <td class="content">
 After sorting, commands that require INDEX as an input field (e.g. <code>delete</code>) will take in INDEX with regards to the new list  displayed. e.g. <code>delete 1</code> will delete the current first engagement displayed.
-=== Undoing the previous command : <code>undo</code>
-Undoes the previous command, provided that it exists.<br>
-Format: <code>undo</code>
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="undoing-the-previous-command-code-undo-code"><a class="link" href="#undoing-the-previous-command-code-undo-code">Undoing the previous command : <code>undo</code></a></h3>
+<div class="paragraph">
+<p>Undoes the previous command, provided that it exists.<br>
+Format: <code>undo</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -498,12 +502,24 @@ Each positive sequence comparator compares two <code>Engagements</code> with the
 </div>
 </div>
 <div class="paragraph">
-<p>Step 2. The user executes <code>sort priority ascending</code> command to sort the engagement list in ascending order of priority. The <code>sort</code> command calls <code>Model#setComparator()</code>, causing the <code>currentComparator</code> in ModelManager to assume the value <code>EngagementComparator#PRIORITY</code>. The command then calls <code>Model#updateSortedEngagementList</code> to execute the sorting.</p>
+<p>Step 2. The user executes <code>sort p/priority o/ascending</code> command to sort the engagement list in ascending order of priority. The <code>sort</code> command calls <code>Model#setComparator()</code>, causing the <code>currentComparator</code> in ModelManager to assume the value <code>EngagementComparator#PRIORITY</code>. The command then calls <code>Model#updateSortedEngagementList</code> to execute the sorting.</p>
 </div>
 <div class="imageblock" style="text-align: center">
 <div class="content">
 <img src="../images/SortListState1.png" alt="SortListState1" width="450">
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+The parsing of <code>sort</code> follows the interactive parsing structure <strong><em>Typee</em></strong> adopts, where various stages are created while parsing. See Sequence Diagram below.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the sort operation works:</p>
@@ -686,4 +702,4 @@ and carry out administrative tasks.</p>
 </dl>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:19:47 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 02:46:38 UTC</div></div></div></body></html>
