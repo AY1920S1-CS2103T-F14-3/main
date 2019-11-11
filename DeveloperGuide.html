@@ -28,8 +28,9 @@
 <li><a href="#calendar-window">3.4. Calendar Window</a></li>
 <li><a href="#game-feature">3.5. Game Feature</a></li>
 <li><a href="#sort-feature">3.6. Sort feature</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
+<li><a href="#interactive-parsing">3.7. Interactive Parsing</a></li>
+<li><a href="#logging">3.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -1244,14 +1245,190 @@ If the <code>currentComparator</code> assumes the initial value <code>null</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="interactive-parsing"><a class="link" href="#interactive-parsing">3.7. Interactive Parsing</a></h3>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">3.7.1. Overview</a></h4>
+<div class="paragraph">
+<p>Interactive parsing allows users to build a command sequentially, as opposed to doing it entirely in one shot. A user that wishes to
+add an interview can simply type <code>add t/interview</code> to receive prompts on what to enter next.</p>
+</div>
+<div class="paragraph">
+<p>This feature was conceived to make the application easy to use for amateur users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-implementation"><a class="link" href="#design-implementation">3.7.2. Design &amp; Implementation</a></h4>
+<div class="paragraph">
+<p>Important Classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>InteractiveParser</code> - The interface exposed to <code>LogicManager</code>. The parser implements this interface.</p>
+</li>
+<li>
+<p><code>Parser</code> - A concrete implementation of <code>InteractiveParser</code> that enables interactive parsing.</p>
+</li>
+<li>
+<p><code>State</code> - An abstract class that represents the individual states the application can be in while parsing and building a <code>Command</code>.</p>
+</li>
+<li>
+<p><code>EndState</code> - An abstract class that extends from <code>State</code>. Represents the final <code>State</code> of a parsed command, from which a <code>Command</code> object can be built.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The interface <code>InteractiveParser</code> is the connecting interface between the <code>LogicManager</code> and the main <code>Parser</code>. This interface is
+designed by contract (DbC - proposed by Bertrand Meyer). The interface exposes four methods to the <code>LogicManager</code>, namely:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>parseInput()</code> - Parses the entered input.</p>
+</li>
+<li>
+<p><code>fetchResult()</code> - Returns the response to be showed to the user in a <code>CommandResult</code> object.</p>
+</li>
+<li>
+<p><code>hasParsedCommand()</code> - Returns true if the <code>Parser</code> has finished parsing a <code>Command</code> fully.</p>
+</li>
+<li>
+<p><code>makeCommand()</code> - Makes and returns the <code>Command</code> the user intends to execute.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>To achieve interaction, the <code>Parser</code> keeps track of the <code>State</code> of the current <code>Command</code> being built. <code>State</code> is an abstract class that represents
+the individual states the application can be at in the midst of building a <code>Command</code>. <code>EndState</code> is an abstract class that extends from <code>State</code>,
+from which <code>Command</code> objects can be built. As and when valid inputs are entered, the <code>Parser</code> updates
+the current <code>State</code> to the subsequent <code>States</code> of the corresponding <code>Command</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>Parser</code> starts at an idle, inactive <code>State</code> Upon entering <code>add t/meeting</code>, the <code>State</code> being tracked is changed twice - first
+to the <code>State</code> corresponding to the type of the <code>Engagement</code> and then to the <code>State</code> responsible for the start date-time.</p>
+</div>
+<div class="paragraph">
+<p>Such <code>State</code> changes happen sequentially until all the arguments necessary for the <code>Command</code> have been supplied. When all necessary arguments are present,
+the <code>State</code> being tracked transitions into an <code>EndState</code>. Once the tracked <code>State</code> transitions into an <code>EndState</code>, the <code>Parser</code> builds the <code>Command</code>
+which is executed by the <code>LogicManager</code>.</p>
+</div>
+<div class="paragraph">
+<p>The structure of the interactive parser is detailed in the UML diagram below.</p>
+</div>
+<div class="paragraph">
+<p>Parsing of user entered inputs can be viewed as parsing a small, finite context-free language. The command built by a sequence of inputs
+is uniquely determined by the sequence of inputs entered by the user and happens to be deterministic.<br></p>
+</div>
+<div class="paragraph">
+<p>This observation allows the <code>Parser</code> to be modeled by a <strong>finite state machine</strong>. A finite state machine is an
+abstract computational model which consists of a machine comprising several states. At a particular point in time, only one state
+of the state machine is active. The machine transitions from one state to another state if certain conditions are met.</p>
+</div>
+<div class="paragraph">
+<p>In the context of Typee&#8217;s <code>Parser</code>, the parser of each individual <code>Command</code> is a distinct finite state machine. The condition to be
+satisfied to transition to another state is the validation of user-entered inputs.</p>
+</div>
+<div class="paragraph">
+<p>The incorporation of state machines into the <code>Parser</code> is done by implementing a slightly modified version of the <strong>state pattern</strong>
+documented by the <strong>Gang of Four</strong> (GoF).</p>
+</div>
+<div class="paragraph">
+<p>Upon initiating the parsing (building) of a <code>Command</code>, the state machine that corresponds to the required <code>Command</code> is instantiated and set
+to its initial state. This state becomes the <code>State</code> tracked by the <code>Parser</code> Subsequent inputs are tokenized by the <code>ArgumentTokenizer</code> class,
+processed by the <code>InputProcessor</code> class and forwarded to the current <code>State</code>. If the input is deemed valid, the <code>Parser</code> invokes the <code>transition()</code>
+method of the current <code>State</code> to proceed to the next <code>State</code>. This process is repeated until an <code>EndState</code> is reached. Throughout this process, the
+user receives feedback from the <code>Parser</code> in the form of an encapsulated <code>CommandResult</code> object.</p>
+</div>
+<div class="paragraph">
+<p>Below is a sequence diagram illustrating the processes that occur when the user enters <code>t/meeting s/15/11/2019/1500</code> following <code>add</code>.</p>
+</div>
+<div class="paragraph">
+<p>The high-level working of the <code>Parser</code> can be summarized by the activity diagram shown below.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-5"><a class="link" href="#design-considerations-5">3.7.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-abstract-model"><a class="link" href="#aspect-abstract-model">Aspect : Abstract model</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current design)</strong> : Finite state machine</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Highly flexible - Entire command, one argument at a time and multiple arguments at a time - all are supported.</p>
+</li>
+<li>
+<p>Easily extensible - Adding a new command will require almost no changes in any of the existing classes.</p>
+</li>
+<li>
+<p>Supports optional arguments with the help of the <code>OptionalState</code> interface.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Tedious to implement a state machine for each individual command.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2</strong> : Use a list based implementation to keep track of arguments entered.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Easy to implement and keep track of arguments</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Cons:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Very hard to implement optional states.</p>
+</li>
+<li>
+<p>Cannot execute commands like <code>Help</code> at any point in time without hard-coding it in the <code>Parser</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1282,7 +1459,7 @@ If the <code>currentComparator</code> assumes the initial value <code>null</code
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2445,4 +2622,4 @@ p/😄</code></pre>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:10:25 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2019-11-11 10:11:13 UTC</div></div></div></body></html>
